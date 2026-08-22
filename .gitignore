@@ -1,0 +1,18 @@
+node_modules
+.vercel
+.tanstack
+dist
+screenshots
+artifacts
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+AGENTS.md
+startup.sh
+.node_modules.lock
+
+# Grok workspace internals (keep the auth flag)
+.grok/*
+!.grok/app-env.json
