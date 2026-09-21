@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="ANAGEN" />
+  <title>ANAGEN — hair and tooth regeneration atlas</title>
+  <meta name="description" content="Research atlas of hair and tooth regeneration: rescue, multiply, reconstitute. As of August 2026. Not medical or dental advice." />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111114'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28'%3E∿%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09090b; --surface: #111114; --fg: #f4f4f5; --muted: #a1a1aa;
+      --faint: #71717a; --border: #27272a;
+      --safe-t: env(safe-area-inset-top, 0px); --safe-b: env(safe-area-inset-bottom, 0px);
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; background: var(--bg); color: var(--fg); }
+    body { font-family: Figtree, ui-sans-serif, system-ui, sans-serif; min-height: 100dvh; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: "Instrument Serif", "Times New Roman", serif; font-weight: 400; letter-spacing: -0.03em; text-wrap: balance; margin: 0; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    a { color: inherit; }
+    .wrap { width: min(1100px, 100%); margin: 0 auto; padding: 0 16px calc(88px + var(--safe-b)); }
+    header.top { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px); background: color-mix(in oklab, var(--bg) 82%, transparent); border-bottom: 1px solid var(--border); padding: calc(10px + var(--safe-t)) 16px 10px; }
+    .top-inner { width: min(1100px, 100%); margin: 0 auto; display: flex; align-items: center; gap: 10px; }
+    .brand { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; }
+    .spacer { flex: 1; }
+    .seg { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 3px; }
+    .seg button { border-radius: 999px; padding: 8px 14px; font-size: 13px; font-weight: 500; color: var(--muted); }
+    .seg button.on { background: var(--fg); color: var(--bg); }
+    .tabs { display: flex; gap: 6px; overflow-x: auto; padding: 14px 0 6px; -webkit-overflow-scrolling: touch; }
+    .tabs button { flex: 0 0 auto; border: 1px solid var(--border); background: var(--surface); border-radius: 999px; padding: 8px 14px; font-size: 13px; color: var(--muted); }
+    .tabs button.on { border-color: var(--fg); color: var(--fg); }
+    .hero { padding: 28px 0 8px; }
+    .kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    h1 { font-size: clamp(40px, 10vw, 76px); line-height: 0.92; margin-top: 12px; }
+    .lede { max-width: 38em; color: var(--muted); font-size: 17px; margin-top: 16px; }
+    .grid3 { display: grid; gap: 1px; background: var(--border); margin: 28px 0; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; }
+    @media (min-width: 760px) { .grid3 { grid-template-columns: 1fr 1fr 1fr; } }
+    article.card { background: var(--bg); padding: 22px; }
+    article.card h2 { font-size: 30px; }
+    .roman { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; color: var(--faint); }
+    .muted { color: var(--muted); } .faint { color: var(--faint); }
+    .stack { display: grid; gap: 12px; }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; }
+    .panel h3 { font-size: 24px; }
+    .meta { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
+    .lab { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 18px; }
+    input[type=range] { width: 100%; accent-color: var(--fg); }
+    .bars { display: grid; gap: 10px; margin-top: 16px; }
+    .bar { height: 10px; background: #1f1f24; border-radius: 99px; overflow: hidden; }
+    .bar > i { display: block; height: 100%; background: var(--fg); width: 0; }
+    .fine { font-size: 13px; color: var(--faint); margin-top: 28px; }
+    .hidden { display: none !important; }
+    .can { color: #b7d7b4; } .cannot { color: #d4a59a; }
+    footer.dock { position: fixed; left: 0; right: 0; bottom: 0; padding: 8px 12px calc(10px + var(--safe-b)); background: color-mix(in oklab, var(--bg) 88%, transparent); border-top: 1px solid var(--border); backdrop-filter: blur(16px); }
+    .dock-inner { width: min(1100px, 100%); margin: 0 auto; display: flex; gap: 8px; }
+    .dock-inner a, .dock-inner button { flex: 1; text-align: center; text-decoration: none; border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 10px 8px; font-size: 12px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header class="top"><div class="top-inner"><div class="brand">ANAGEN</div><div class="spacer"></div>
+    <div class="seg" role="tablist" aria-label="Organ">
+      <button id="org-hair" class="on" type="button">Hair</button>
+      <button id="org-tooth" type="button">Tooth</button>
+    </div></div></header>
+  <main class="wrap">
+    <div id="hair">
+      <div class="tabs" id="hair-tabs"></div>
+      <section data-panel="home" class="hero">
+        <p class="kicker">Research atlas · August 2026</p>
+        <h1>Thicker than it<br>ever was.</h1>
+        <p class="lede">Height is finished when the plates fuse. Follicles and teeth are mini-organs. The honest project is rescue of what is still there, reconstitution of a germ when it is not, and — only in theory — invention past the original map.</p>
+        <div class="grid3" id="hair-horizons"></div>
+      </section>
+      <section data-panel="stack" class="hidden"><div class="hero"><p class="kicker">Approved and used</p><h1>The stack.</h1><p class="lede">What can actually delay miniaturization today. Not a prescription.</p></div><div class="stack" id="hair-stack"></div></section>
+      <section data-panel="pipeline" class="hidden"><div class="hero"><p class="kicker">In humans, or close</p><h1>Pipeline.</h1><p class="lede">Signals as of August 2026. Treat early datasets as signals, not instructions.</p></div><div class="stack" id="hair-pipe"></div></section>
+      <section data-panel="biology" class="hidden"><div class="hero"><p class="kicker">The organ</p><h1>Biology.</h1></div><div class="stack" id="hair-bio"></div></section>
+      <section data-panel="lab" class="hidden"><div class="hero"><p class="kicker">Density lab</p><h1>What is left.</h1><p class="lede">Pattern baldness is usually miniaturization. Move the Norwood stage — a teaching toy, not a diagnosis.</p></div>
+        <div class="lab"><label class="meta" for="nw">Norwood stage <span id="nw-label">III</span></label>
+          <input id="nw" type="range" min="1" max="7" value="3" />
+          <div class="bars"><div><div class="meta">Visible terminal</div><div class="bar"><i id="bar-vis"></i></div></div>
+          <div><div class="meta">Possibly dormant</div><div class="bar"><i id="bar-dorm"></i></div></div></div>
+          <p class="muted" id="lab-copy"></p></div></section>
+      <section data-panel="myths" class="hidden"><div class="hero"><p class="kicker">Corrections</p><h1>Myths.</h1></div><div class="stack" id="hair-myths"></div></section>
+    </div>
+    <div id="tooth" class="hidden">
+      <div class="tabs" id="tooth-tabs"></div>
+      <section data-panel="home" class="hero">
+        <p class="kicker">Second organ · teeth and periodontium</p>
+        <h1>A germ, not a<br>tooth in a vat.</h1>
+        <p class="lede">You assemble a tooth germ ex vivo. You let it erupt in a living socket. The ligament is not a spare part.</p>
+        <div class="grid3" id="tooth-horizons"></div>
+      </section>
+      <section data-panel="methods" class="hidden"><div class="hero"><p class="kicker">Would ex-vivo synthesis work?</p><h1>Methods.</h1></div><div class="stack" id="tooth-methods"></div></section>
+      <section data-panel="stack" class="hidden"><div class="hero"><p class="kicker">What clinics already do</p><h1>Rescue and replace.</h1></div><div class="stack" id="tooth-stack"></div></section>
+      <section data-panel="pipeline" class="hidden"><div class="hero"><p class="kicker">2026 horizon</p><h1>Pipeline.</h1></div><div class="stack" id="tooth-pipe"></div></section>
+      <section data-panel="organ" class="hidden"><div class="hero"><p class="kicker">Six tissues</p><h1>The organ.</h1></div><div class="stack" id="tooth-org"></div></section>
+      <section data-panel="trauma" class="hidden"><div class="hero"><p class="kicker">Injury</p><h1>Punch, fire, laser.</h1></div><div class="stack" id="tooth-trauma"></div></section>
+    </div>
+    <p class="fine">Not medical or dental advice. Cite the papers, not this site. Personal research project by Dylan Stechmann. Source: github.com/dylanstechmann/anagen</p>
+  </main>
+  <footer class="dock"><div class="dock-inner">
+    <button type="button" id="dock-top">Top</button>
+    <a href="https://github.com/dylanstechmann/anagen">Code</a>
+    <a href="https://dylanstechmann.github.io/ReaperDelay/">Reaper Delay</a>
+  </div></footer>
+  <script src="./atlas.js"></script>
+</body>
+</html>
