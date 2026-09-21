@@ -1,0 +1,9 @@
+{
+  "name": "ANAGEN",
+  "short_name": "ANAGEN",
+  "description": "Hair and tooth regeneration atlas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b"
+}
