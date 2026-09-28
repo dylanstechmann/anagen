@@ -10,7 +10,7 @@ function PipelinePage() {
       <PageHead
         kicker="Volume III"
         title="What is actually in humans."
-        lede="Ignore the clinic brochure. These are programs with protocols, phases, and — in a few cases — Phase 3 numbers. Dates as of August 2026."
+        lede="Ignore the clinic brochure. These are programs with protocols, phases, and — in a few cases — Phase 3 numbers. The core map dates to August 2026; see individual review dates where shown."
       />
 
       <ol className="relative space-y-4 border-l border-border pb-12 ml-3 sm:ml-4">
@@ -29,6 +29,16 @@ function PipelinePage() {
               <p className="mt-4 text-sm leading-relaxed text-muted">{item.mechanism}</p>
               <p className="mt-3 text-sm leading-relaxed text-fg">{item.signal}</p>
               <p className="mt-3 text-sm leading-relaxed text-faint">{item.why}</p>
+              {item.review && (
+                <p className="mt-3 text-xs leading-relaxed text-faint">
+                  Reviewed on {item.review.date} · Sources: {item.review.sources.map((source, index) => (
+                    <span key={source.url}>
+                      {index > 0 ? ", " : ""}
+                      <a href={source.url} className="underline" target="_blank" rel="noreferrer">{source.label}</a>
+                    </span>
+                  ))}
+                </p>
+              )}
             </article>
           </li>
         ))}

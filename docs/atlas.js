@@ -27,7 +27,7 @@ const treatments = [
 ];
 
 const pipeline = [
-  ["Clascoterone 5%", "Cosmo", "Phase 3 filings", "2025-2026", "Topical androgen-receptor antagonist. Same molecule as Winlevi, 10x concentration.", "SCALP-1/2 in 1,465 men: large TAHC gains vs vehicle at 6 months. 12-month stay-on-drug data April 2026.", "First new AGA mechanism at FDA scale in ~30 years if approved."],
+  ["Clascoterone 5%", "Cosmo", "Phase 3 complete; filings planned", "2025-2026", "Topical androgen-receptor antagonist. Same molecule as Winlevi, 10x concentration.", "SCALP-1/2 are listed as completed. Cosmo reports hair-count gains in 1,465 men and 12-month extension data. Its April 2026 update says US/EU submissions are being prepared, with a US filing planned for early 2027; no approval is implied.", "First new AGA mechanism at FDA scale in ~30 years if approved.", '<p class="faint">Reviewed on 2026-09-28 · Sources: <a href="https://clinicaltrials.gov/study/NCT05910450">SCALP-1 registry</a>, <a href="https://clinicaltrials.gov/study/NCT05914805">SCALP-2 registry</a>, <a href="https://www.cosmohealthconfidence.com/news/98958067-clascoterone-12-month-safety-results-ende">Cosmo update</a></p>'],
   ["PP405", "Pelage / UCLA", "Phase 3 start 2026", "2025-2026", "Topical mitochondrial pyruvate carrier inhibitor. Aims at dormant hair-follicle stem cells via a lactate switch.", "Phase 2a, 78 people, 4 weeks. Safety met; no systemic absorption detected. Signal of density gain in advanced men at week 8.", "Rescue of follicles drugs currently write off. Early, short dosing - a signal, not a prescription."],
   ["VDPHL01", "Veradermics", "Phase 3 positive", "April 2026", "Extended-release oral minoxidil. Same pharmacology, flatter plasma curve.", "79-86% reported improvement vs 36% placebo. NDA targeted 2026-27.", "Industrializes the pathway that already grows hair on faces by accident."],
   ["Follicle germ reconstitution", "OrganTech / Tsuji", "First-in-human aimed late 2026", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells. Claim: one follicle into 50-100.", "Decades of mouse and reconstituted-human work. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take."],
@@ -124,8 +124,8 @@ function panels(el, items) { el.innerHTML = items.join(''); }
 cards(document.getElementById('hair-horizons'), hairHorizons);
 panels(document.getElementById('hair-stack'), treatments.map(([n, aka, ev, h, m, c, no]) =>
   '<article class="panel"><p class="meta">' + ev + ' \u00b7 ' + h + '</p><h3>' + n + '</h3>' + (aka ? '<p class="faint">' + aka + '</p>' : '') + '<p class="muted">' + m + '</p><p class="can">Can: ' + c + '</p><p class="cannot">Cannot: ' + no + '</p></article>'));
-panels(document.getElementById('hair-pipe'), pipeline.map(([n, org, phase, year, m, s, w]) =>
-  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + ' \u00b7 ' + year + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + w + '</p></article>'));
+panels(document.getElementById('hair-pipe'), pipeline.map(([n, org, phase, year, m, s, w, review = '']) =>
+  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + ' \u00b7 ' + year + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + w + '</p>' + review + '</article>'));
 panels(document.getElementById('hair-bio'), [].concat(
   anatomy.map(([n, f]) => '<article class="panel"><h3>' + n + '</h3><p class="muted">' + f + '</p></article>'),
   cycle.map(([n, s, b]) => '<article class="panel"><p class="meta">' + s + '</p><h3>' + n + '</h3><p class="muted">' + b + '</p></article>'),

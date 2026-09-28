@@ -9,7 +9,7 @@ export type Evidence =
   | "preclinical"
   | "theoretical";
 
-export const AS_OF = "August 2026";
+export const AS_OF = "Core map · August 2026";
 
 export const horizons: {
   id: Horizon;
@@ -231,6 +231,7 @@ export type PipelineItem = {
   signal: string;
   why: string;
   horizon: Horizon;
+  review?: { date: string; sources: { label: string; url: string }[] };
 };
 
 export const pipeline: PipelineItem[] = [
@@ -238,14 +239,22 @@ export const pipeline: PipelineItem[] = [
     id: "clascoterone",
     name: "Clascoterone 5% solution",
     org: "Cosmo Pharmaceuticals",
-    phase: "Phase 3 — submissions",
+    phase: "Phase 3 complete; filings planned",
     year: "2025–2026",
     mechanism:
       "Topical androgen-receptor antagonist. Same molecule as Winlevi 1% for acne, ten times the concentration, aimed at the follicle AR instead of systemic 5AR.",
     signal:
-      "SCALP-1 and SCALP-2 (1,465 men): relative target-area hair-count improvements of 168% and 539% vs vehicle at 6 months; combined ~252%. Twelve-month data (April 2026): men who stayed on drug the full year had 2.39× TAHC vs those switched to vehicle at month 6. Safety comparable to vehicle. US/EU filings following the safety dataset.",
+      "SCALP-1 and SCALP-2 are listed as completed. Cosmo reports 6-month target-area hair-count gains from 1,465 men and a 2.39× 12-month comparison among extension participants who stayed on drug versus those switched to vehicle. In April 2026, Cosmo said NDA/MAA preparations were under way and planned a US filing for early 2027; this is a plan, not a submission or approval.",
     why: "First new AGA mechanism at FDA scale in ~30 years if approved. Local AR blockade without castrating serum DHT.",
     horizon: "rescue",
+    review: {
+      date: "2026-09-28",
+      sources: [
+        { label: "SCALP-1 registry", url: "https://clinicaltrials.gov/study/NCT05910450" },
+        { label: "SCALP-2 registry", url: "https://clinicaltrials.gov/study/NCT05914805" },
+        { label: "Cosmo update", url: "https://www.cosmohealthconfidence.com/news/98958067-clascoterone-12-month-safety-results-ende" },
+      ],
+    },
   },
   {
     id: "pp405",
