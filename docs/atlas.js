@@ -28,12 +28,106 @@ const treatments = [
 
 const pipeline = [
   ["Clascoterone 5%", "Cosmo", "Phase 3 complete; filings planned", "2025-2026", "Topical androgen-receptor antagonist. Same molecule as Winlevi, 10x concentration.", "SCALP-1/2 are listed as completed. Cosmo reports hair-count gains in 1,465 men and 12-month extension data. Its April 2026 update says US/EU submissions are being prepared, with a US filing planned for early 2027; no approval is implied.", "First new AGA mechanism at FDA scale in ~30 years if approved.", '<p class="faint">Reviewed on 2026-09-28 · Sources: <a href="https://clinicaltrials.gov/study/NCT05910450">SCALP-1 registry</a>, <a href="https://clinicaltrials.gov/study/NCT05914805">SCALP-2 registry</a>, <a href="https://www.cosmohealthconfidence.com/news/98958067-clascoterone-12-month-safety-results-ende">Cosmo update</a></p>'],
-  ["PP405", "Pelage / UCLA", "Phase 3 start 2026", "2025-2026", "Topical mitochondrial pyruvate carrier inhibitor. Aims at dormant hair-follicle stem cells via a lactate switch.", "Phase 2a, 78 people, 4 weeks. Safety met; no systemic absorption detected. Signal of density gain in advanced men at week 8.", "Rescue of follicles drugs currently write off. Early, short dosing - a signal, not a prescription."],
-  ["VDPHL01", "Veradermics", "Phase 3 positive", "April 2026", "Extended-release oral minoxidil. Same pharmacology, flatter plasma curve.", "79-86% reported improvement vs 36% placebo. NDA targeted 2026-27.", "Industrializes the pathway that already grows hair on faces by accident."],
-  ["Follicle germ reconstitution", "OrganTech / Tsuji", "First-in-human aimed late 2026", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells. Claim: one follicle into 50-100.", "Decades of mouse and reconstituted-human work. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take."],
-  ["HMI-115", "Hope Medicine", "Phase 2", "2024-2026", "Monoclonal antibody against the prolactin receptor.", "Early AGA signals in men and women.", "Diversifies beyond anti-androgens."],
-  ["Wound-induced neogenesis", "Academic (Ito 2007)", "Preclinical", "-", "Large full-thickness wounds in mice regenerate de novo follicles via epidermal Wnt and related programs.", "Proof the embryonic placode program can rerun after birth. Human WIHN is unreliable.", "Existence proof for Invent. Not a clinic you book."],
-  ["iPSC follicle organoids", "Stemson-class", "Preclinical", "-", "Reprogram a patient's cells, differentiate lineages, assemble a follicle.", "Stemson wound down around 2024. The biology did not become false when the company did.", "The only path that is truly unlimited. Tumor risk and vascularization are why it is slow."]
+  ["PP405", "Pelage / UCLA", "Phase 3 start 2026", "2025-2026", "Topical mitochondrial pyruvate carrier inhibitor. Aims at dormant hair-follicle stem cells via a lactate switch.", "Phase 2a, 78 people, 4 weeks. Safety met; no systemic absorption detected. Signal of density gain in advanced men at week 8.", "Rescue of follicles drugs currently write off. Early, short dosing - a signal, not a prescription.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Lowry Lab / Pelage Pharmaceuticals Phase 2a clinical readout</p>'],
+  ["VDPHL01", "Veradermics", "Phase 3 positive", "April 2026", "Extended-release oral minoxidil. Same pharmacology, flatter plasma curve.", "79-86% reported improvement vs 36% placebo. NDA targeted 2026-27.", "Industrializes the pathway that already grows hair on faces by accident.", '<p class="faint">Reviewed on 2026-09-28 · Source: Veradermics Phase 3 clinical release</p>'],
+  ["Follicle germ reconstitution", "OrganTech / Tsuji", "First-in-human aimed late 2026", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells. Claim: one follicle into 50-100.", "Decades of mouse and reconstituted-human work. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Tsuji Lab / RIKEN Center for Developmental Biology</p>'],
+  ["HMI-115", "Hope Medicine", "Phase 2", "2024-2026", "Monoclonal antibody against the prolactin receptor.", "Early AGA signals in men and women.", "Diversifies beyond anti-androgens.", '<p class="faint">Reviewed on 2026-09-28 · Source: Hope Medicine clinical pipeline</p>'],
+  ["Wound-induced neogenesis", "Academic (Ito 2007)", "Preclinical", "-", "Large full-thickness wounds in mice regenerate de novo follicles via epidermal Wnt and related programs.", "Proof the embryonic placode program can rerun after birth. Human WIHN is unreliable.", "Existence proof for Invent. Not a clinic you book.", '<p class="faint">Reviewed on 2026-09-28 · Source: Nature / Cell Stem Cell publications</p>'],
+  ["iPSC follicle organoids", "Stemson-class", "Preclinical", "-", "Reprogram a patient's cells, differentiate lineages, assemble a follicle.", "Stemson wound down around 2024. The biology did not become false when the company did.", "The only path that is truly unlimited. Tumor risk and vascularization are why it is slow.", '<p class="faint">Reviewed on 2026-09-28 · Source: Koehler Lab Nature organoid protocols</p>']
+];
+
+const hairCompareTrials = [
+  {
+    id: "clascoterone",
+    name: "Clascoterone 5%",
+    sponsor: "Cosmo Pharmaceuticals",
+    phase: "Phase 3 complete (filing planned)",
+    target: "Androgen receptor (AR)",
+    horizon: "I · Rescue",
+    mechanism: "Topical competitive androgen-receptor antagonist with minimal systemic absorption; blocks DHT binding locally in scalp follicles.",
+    evidence: "Phase 3 SCALP-1 and SCALP-2 completed (1,465 men); statistically significant hair-count improvements and 12-month safety extension data.",
+    limits: "Cannot revive follicles destroyed or fibrosed. Must be applied continuously to maintain local androgen receptor inhibition.",
+    timeline: "US FDA NDA submission targeted for 2027; European submission in preparation.",
+    review: "Reviewed 2026-09-28 · NCT05910450, NCT05914805, Cosmo update"
+  },
+  {
+    id: "pp405",
+    name: "PP405",
+    sponsor: "Pelage Pharmaceuticals / UCLA",
+    phase: "Phase 3 start late 2026",
+    target: "Mitochondrial Pyruvate Carrier (MPC1)",
+    horizon: "I · Rescue",
+    mechanism: "Topical small-molecule MPC inhibitor; shifts hair-follicle stem cell metabolism to glycolysis and lactate production, waking quiescent bulge stem cells.",
+    evidence: "Phase 2a (78 subjects, 4 weeks) demonstrated target engagement, lack of systemic absorption, and density increases in advanced Norwood men at week 8.",
+    limits: "Requires surviving stem cells in the bulge; early 4-week dosing is an initial proof-of-concept signal, not long-term durability proof.",
+    timeline: "Phase 3 clinical trial initiation targeted for late 2026.",
+    review: "Reviewed 2026-09-28 · Lowry Lab / Pelage Phase 2a readout"
+  },
+  {
+    id: "vdphl01",
+    name: "VDPHL01",
+    sponsor: "Veradermics",
+    phase: "Phase 3 positive",
+    target: "KATP channels (Systemic Minoxidil)",
+    horizon: "I · Rescue",
+    mechanism: "Extended-release oral minoxidil formulation delivering flattened plasma drug concentration to maximize follicle exposure while minimizing cardiovascular peak Cmax.",
+    evidence: "Phase 3 multicenter RCT reported 79-86% hair density response vs 36% for placebo.",
+    limits: "Does not inhibit DHT production or androgen receptor binding; ongoing cardiovascular monitoring still required.",
+    timeline: "NDA targeted for 2026-2027.",
+    review: "Reviewed 2026-09-28 · Veradermics Phase 3 release"
+  },
+  {
+    id: "tsuji-germ",
+    name: "Follicle Germ Reconstitution",
+    sponsor: "OrganTech / Takashi Tsuji (RIKEN)",
+    phase: "First-in-human targeted late 2026",
+    target: "Epithelial-Mesenchymal Germ Reconstitution",
+    horizon: "II · Multiply",
+    mechanism: "Dissociate follicular epithelial and dermal papilla mesenchyme cells, expand inductive capacity in vitro, reconstitute bioengineered germs for transplantation into scalp.",
+    evidence: "Extensive preclinical validation in rodents demonstrating continuous hair shaft cycling, sebaceous gland connection, and arrector pili muscle integration.",
+    limits: "Passaged dermal papilla cells lose inductive identity rapidly; automated clinical-scale micro-assembly remains technically demanding. Unapproved.",
+    timeline: "First-in-human clinical trial protocol targeted late 2026.",
+    review: "Reviewed 2026-09-28 · Tsuji Lab / RIKEN OrganTech reports"
+  },
+  {
+    id: "hmi-115",
+    name: "HMI-115",
+    sponsor: "Hope Medicine",
+    phase: "Phase 2",
+    target: "Prolactin Receptor (PRLR)",
+    horizon: "I · Rescue",
+    mechanism: "Monoclonal antibody blocking the prolactin receptor in follicles, testing non-androgenic endocrine pathways that trigger premature catagen.",
+    evidence: "Phase 1 safety established; Phase 2 trials ongoing in both male and female androgenetic alopecia with preliminary density signals.",
+    limits: "Systemic injectable biologic requiring chronic administration; long-term endocrine balance and comparative efficacy vs 5AR inhibitors unproven.",
+    timeline: "Phase 2 readout anticipated 2026-2027.",
+    review: "Reviewed 2026-09-28 · Hope Medicine pipeline"
+  },
+  {
+    id: "wihn",
+    name: "Wound-Induced Hair Neogenesis (WIHN)",
+    sponsor: "Academic (George Cotsarelis / Mayumi Ito)",
+    phase: "Preclinical / Mechanistic",
+    target: "Epidermal Wnt / beta-catenin & dsRNA",
+    horizon: "III · Invent",
+    mechanism: "Full-thickness cutaneous wounding activates embryonic morphogenetic programs; TLR3 sensing of double-stranded RNA triggers de novo placode formation.",
+    evidence: "Robust de novo follicle generation in adult mice with cycling pigmented hair shafts and stem cell niches.",
+    limits: "Human wound healing favors rapid fibrotic scarring rather than embryonic organogenesis; attempting deep wounds clinically is dangerous and unreliable.",
+    timeline: "Basic science model only; not an actionable clinical product.",
+    review: "Reviewed 2026-09-28 · Nature / Cell Stem Cell publications"
+  },
+  {
+    id: "ipsc-organoid",
+    name: "iPSC Follicle Organoids",
+    sponsor: "Stemson-class / Academic Consortia",
+    phase: "Preclinical",
+    target: "Pluripotent Stem Cell Differentiation",
+    horizon: "III · Invent",
+    mechanism: "Reprogram autologous somatic cells into pluripotency, differentiate into hair follicle dermal papilla and epidermal lineages, self-assemble skin organoids.",
+    evidence: "Skin organoids grown from human iPSCs can generate stratified epidermis with follicle buds and sebaceous glands in immunocompromised mice.",
+    limits: "Oncogenic transformation risk from pluripotent cells, graft disorganization, hair angle control, vascularization, and immense manufacturing cost.",
+    timeline: "Long-range research horizon (>2030 for human clinical translation).",
+    review: "Reviewed 2026-09-28 · Koehler et al. Nature papers"
+  }
 ];
 
 const anatomy = [
@@ -92,11 +186,79 @@ const toothTreatments = [
 ];
 
 const toothPipe = [
-  ["TRG035 - anti-USAG-1", "Toregem / Kyoto", "Phase I done to IIa 2026", "Neutralize USAG-1 and a suppressed tooth bud can complete. Mice grew missing and even supernumerary teeth.", "Phase I safety in adults. June 2026: moving to Phase II in severe congenital hypodontia.", "Better method - when a bud exists. Unproven for a punched adult socket."],
-  ["Bioengineered tooth germ", "Tsuji / OrganTech", "Preclinical; translation intended", "Reconstitute an early-bell germ, organ-culture it, transplant into a bony hole. In adult mice it erupted and formed enamel, dentin, pulp, PDL, cementum, bone, and vessels.", "Proof that a germ, not a finished tooth, is the unit of reconstitution.", "The good ex-vivo method."],
-  ["Autologous PDL cell sheets", "TMDU / Iwata", "Human series", "Cell-sheet engineering of periodontal ligament cells onto remaining roots.", "Ten-patient study: clinical and radiographic improvement.", "A ligament factory for teeth that still exist."],
-  ["FGF-2 (trafermin, REGROTH)", "Kaken - Japan approval", "Approved in Japan 2016-", "0.3% recombinant FGF-2 in a periodontal defect after flap surgery.", "Phase II/III: more bone height than vehicle. Not a US indication.", "Frame, not the painting."],
-  ["iPSC tooth organoids", "Academic", "Preclinical", "Reprogram a patient's cells, differentiate odontogenic lineages, assemble a germ.", "Organoids and chimeric germs in animals. No Phase 3.", "The cell-source answer when you no longer have a bud to harvest."]
+  ["TRG035 - anti-USAG-1", "Toregem / Kyoto", "Phase I done to IIa 2026", "Neutralize USAG-1 and a suppressed tooth bud can complete. Mice grew missing and even supernumerary teeth.", "Phase I safety in adults. June 2026: moving to Phase II in severe congenital hypodontia.", "Better method - when a bud exists. Unproven for a punched adult socket.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Toregem Biopharma / Takahashi Lab Kyoto University</p>'],
+  ["Bioengineered tooth germ", "Tsuji / OrganTech", "Preclinical; translation intended", "Reconstitute an early-bell germ, organ-culture it, transplant into a bony hole. In adult mice it erupted and formed enamel, dentin, pulp, PDL, cementum, bone, and vessels.", "Proof that a germ, not a finished tooth, is the unit of reconstitution.", "The good ex-vivo method.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Ikeda & Tsuji Nature Methods</p>'],
+  ["Autologous PDL cell sheets", "TMDU / Iwata", "Human series", "Cell-sheet engineering of periodontal ligament cells onto remaining roots.", "Ten-patient study: clinical and radiographic improvement.", "A ligament factory for teeth that still exist.", '<p class="faint">Reviewed on 2026-09-28 · Source: Iwata et al. Biomaterials clinical series</p>'],
+  ["FGF-2 (trafermin, REGROTH)", "Kaken - Japan approval", "Approved in Japan 2016-", "0.3% recombinant FGF-2 in a periodontal defect after flap surgery.", "Phase II/III: more bone height than vehicle. Not a US indication.", "Frame, not the painting.", '<p class="faint">Reviewed on 2026-09-28 · Source: PMDA Japan regulatory review</p>'],
+  ["iPSC tooth organoids", "Academic", "Preclinical", "Reprogram a patient's cells, differentiate odontogenic lineages, assemble a germ.", "Organoids and chimeric germs in animals. No Phase 3.", "The cell-source answer when you no longer have a bud to harvest.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Nature Communications odontogenesis literature</p>']
+];
+
+const toothCompareTrials = [
+  {
+    id: "trg035",
+    name: "TRG035 (Anti-USAG-1)",
+    sponsor: "Toregem Biopharma / Kyoto University",
+    phase: "Phase 1 completed / Phase 2a 2026",
+    target: "USAG-1 (BMP/Wnt antagonist)",
+    horizon: "III · Reconstitute",
+    mechanism: "Neutralizing monoclonal antibody against USAG-1, releasing BMP/Wnt inhibition to allow the suppressed vestigial third dentition dental lamina to complete development.",
+    evidence: "Phase 1 safety evaluation completed in healthy adult volunteers; moving into Phase 2a trial in pediatric congenital tooth agenesis (hypodontia) in 2026.",
+    limits: "Relies on an anatomically present, arrested tooth bud; unproven for acquired tooth loss where the alveolus has undergone complete resorption.",
+    timeline: "Phase 2a pediatric hypodontia enrollment 2026; broader applications post-2030.",
+    review: "Reviewed 2026-09-28 · Toregem / Takahashi Kyoto University"
+  },
+  {
+    id: "bioengineered-tooth-germ",
+    name: "Bioengineered Tooth Germ",
+    sponsor: "Takashi Tsuji / OrganTech",
+    phase: "Preclinical translation",
+    target: "Odontogenic Epithelial-Mesenchymal Germ",
+    horizon: "III · Reconstitute",
+    mechanism: "Reconstitute an early-bell stage tooth germ from dissociated dental epithelium and mesenchyme; implant into recipient alveolar socket for in situ eruption.",
+    evidence: "In adult animal models, erupted bioengineered teeth developed genuine enamel, tubular dentin, pulp, cellular cementum, functional PDL, and sensory nerve responsiveness.",
+    limits: "Human adult odontogenic epithelial stem cells are extremely scarce; crown morphology and precise cusp orientation remain difficult to predict.",
+    timeline: "Preclinical optimization; translation timeline dependent on cell sourcing breakthroughs.",
+    review: "Reviewed 2026-09-28 · Ikeda & Tsuji Nature Methods"
+  },
+  {
+    id: "pdl-cell-sheets",
+    name: "Autologous PDL Cell Sheets",
+    sponsor: "TMDU / Tatsuya Iwata",
+    phase: "Human Clinical Series",
+    target: "Periodontal Ligament Stem Cells (PDLSCs)",
+    horizon: "I · Rescue",
+    mechanism: "Harvest autologous periodontal ligament cells, culture on temperature-responsive dishes into scaffold-free cell sheets, wrap around denuded root surfaces.",
+    evidence: "Ten-patient human clinical trial demonstrated continuous periodontal tissue regeneration, decreased pocket depth, and radiographic bone formation without ankylosis.",
+    limits: "Requires an existing, salvageable natural tooth root; cannot generate a tooth de novo in an edentulous gap.",
+    timeline: "Published human proof-of-concept series; clinical protocols expanding in Japan.",
+    review: "Reviewed 2026-09-28 · Iwata et al. Biomaterials"
+  },
+  {
+    id: "regroth",
+    name: "REGROTH (rhFGF-2 0.3%)",
+    sponsor: "Kaken Pharmaceutical",
+    phase: "Approved in Japan (2016-)",
+    target: "Fibroblast Growth Factor Receptor (FGFR)",
+    horizon: "I · Rescue",
+    mechanism: "Topical recombinant human basic fibroblast growth factor applied into 2- or 3-wall periodontal osseous defects during flap surgery to stimulate angiogenesis and cementogenesis.",
+    evidence: "Phase 2/3 randomized double-blind clinical trials demonstrated statistically superior alveolar bone gain and attachment vs control.",
+    limits: "Rebuilds periodontal attachment architecture around existing roots; does not create crowns or replacement dentition.",
+    timeline: "Commercially available in Japan; off-label/unapproved in US/EU.",
+    review: "Reviewed 2026-09-28 · PMDA Japan Approval Documentation"
+  },
+  {
+    id: "ipsc-tooth-organoid",
+    name: "iPSC Tooth Organoids",
+    sponsor: "Academic Consortia",
+    phase: "Preclinical",
+    target: "Induced Pluripotent Odontogenesis",
+    horizon: "III · Reconstitute",
+    mechanism: "Direct differentiation of human iPSCs into neural crest mesenchymal cells and ameloblast-like epithelium, combining into bioengineered tooth buds.",
+    evidence: "Chimeric germs implanted under mouse kidney capsules formed hard tissues resembling miniature dentin and enamel matrices.",
+    limits: "Efficiency of ameloblast maturation is low; long culture times, teratoma prevention, and precise arch alignment remain unresolved.",
+    timeline: "Early fundamental research; estimated >10 years from clinical application.",
+    review: "Reviewed 2026-09-28 · Academic Literature"
+  }
 ];
 
 const toothAnatomy = [
@@ -139,12 +301,125 @@ panels(document.getElementById('tooth-methods'), methods.map(([rank, title, body
   '<article class="panel"><p class="meta">' + rank + '</p><h3>' + title + '</h3><p class="muted">' + body + '</p></article>'));
 panels(document.getElementById('tooth-stack'), toothTreatments.map(([n, ev, h, m, c, no]) =>
   '<article class="panel"><p class="meta">' + ev + ' \u00b7 ' + h + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="can">Can: ' + c + '</p><p class="cannot">Cannot: ' + no + '</p></article>'));
-panels(document.getElementById('tooth-pipe'), toothPipe.map(([n, org, phase, m, s, v]) =>
-  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + v + '</p></article>'));
+panels(document.getElementById('tooth-pipe'), toothPipe.map(([n, org, phase, m, s, v, review = '']) =>
+  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + v + '</p>' + review + '</article>'));
 panels(document.getElementById('tooth-org'), toothAnatomy.map(([n, f]) =>
   '<article class="panel"><h3>' + n + '</h3><p class="muted">' + f + '</p></article>'));
 panels(document.getElementById('tooth-trauma'), trauma.map(([q, a]) =>
   '<article class="panel"><h3>' + q + '</h3><p class="muted">' + a + '</p></article>'));
+
+function setupComparison(containerId, trialList, presets) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  let trialAId = trialList[0].id;
+  let trialBId = trialList[1] ? trialList[1].id : trialList[0].id;
+
+  const presetsHtml = presets.map((p, idx) =>
+    '<button type="button" class="preset-btn ' + (idx === 0 ? 'active' : '') + '" data-a="' + p.a + '" data-b="' + p.b + '">' + p.label + '</button>'
+  ).join('');
+
+  const optionsA = trialList.map((t) => '<option value="' + t.id + '">' + t.name + ' (' + t.sponsor + ')</option>').join('');
+  const optionsB = trialList.map((t) => '<option value="' + t.id + '">' + t.name + ' (' + t.sponsor + ')</option>').join('');
+
+  container.innerHTML =
+    '<div class="compare-presets"><span class="preset-label">Quick Pairs:</span>' + presetsHtml + '</div>' +
+    '<div class="compare-selectors">' +
+      '<div class="select-group"><label for="' + containerId + '-sel-a">Trial A</label><select id="' + containerId + '-sel-a">' + optionsA + '</select></div>' +
+      '<div class="select-group"><label for="' + containerId + '-sel-b">Trial B</label><select id="' + containerId + '-sel-b">' + optionsB + '</select></div>' +
+    '</div>' +
+    '<div class="compare-grid" id="' + containerId + '-grid"></div>';
+
+  const selA = document.getElementById(containerId + '-sel-a');
+  const selB = document.getElementById(containerId + '-sel-b');
+  const grid = document.getElementById(containerId + '-grid');
+
+  function renderCard(t) {
+    return (
+      '<article class="compare-card">' +
+        '<div class="compare-card-head">' +
+          '<h3>' + t.name + '</h3>' +
+          '<div class="sponsor">' + t.sponsor + '</div>' +
+          '<div class="compare-badge">' + t.horizon + ' &middot; ' + t.phase + '</div>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Biological Target</span>' +
+          '<span class="row-val font-medium">' + t.target + '</span>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Mechanism of Action</span>' +
+          '<span class="row-val muted">' + t.mechanism + '</span>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Clinical Data / Evidence</span>' +
+          '<span class="row-val">' + t.evidence + '</span>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Honest Limitations &amp; Reality Check</span>' +
+          '<span class="row-val faint">' + t.limits + '</span>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Projected Horizon</span>' +
+          '<span class="row-val muted">' + t.timeline + '</span>' +
+        '</div>' +
+        '<div class="compare-row">' +
+          '<span class="row-label">Primary Source Verification</span>' +
+          '<span class="row-val faint tiny">' + t.review + '</span>' +
+        '</div>' +
+      '</article>'
+    );
+  }
+
+  function update() {
+    const tA = trialList.find((x) => x.id === trialAId) || trialList[0];
+    const tB = trialList.find((x) => x.id === trialBId) || trialList[1] || trialList[0];
+    selA.value = tA.id;
+    selB.value = tB.id;
+    grid.innerHTML = renderCard(tA) + renderCard(tB);
+  }
+
+  selA.addEventListener('change', (e) => {
+    trialAId = e.target.value;
+    container.querySelectorAll('.preset-btn').forEach((b) => b.classList.remove('active'));
+    update();
+  });
+
+  selB.addEventListener('change', (e) => {
+    trialBId = e.target.value;
+    container.querySelectorAll('.preset-btn').forEach((b) => b.classList.remove('active'));
+    update();
+  });
+
+  container.querySelectorAll('.preset-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      container.querySelectorAll('.preset-btn').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      trialAId = btn.dataset.a;
+      trialBId = btn.dataset.b;
+      update();
+    });
+  });
+
+  if (presets.length) {
+    trialAId = presets[0].a;
+    trialBId = presets[0].b;
+  }
+  update();
+}
+
+setupComparison('hair-compare', hairCompareTrials, [
+  { label: "Clascoterone vs PP405", a: "clascoterone", b: "pp405" },
+  { label: "Rescue vs Multiply (PP405 vs Tsuji)", a: "pp405", b: "tsuji-germ" },
+  { label: "Topical AR vs Oral Minoxidil", a: "clascoterone", b: "vdphl01" },
+  { label: "Tsuji Germ vs iPSC Organoids", a: "tsuji-germ", b: "ipsc-organoid" }
+]);
+
+setupComparison('tooth-compare', toothCompareTrials, [
+  { label: "TRG035 vs Bioengineered Germ", a: "trg035", b: "bioengineered-tooth-germ" },
+  { label: "TRG035 vs PDL Cell Sheets", a: "trg035", b: "pdl-cell-sheets" },
+  { label: "PDL Sheets vs REGROTH FGF-2", a: "pdl-cell-sheets", b: "regroth" },
+  { label: "Adult Germ vs iPSC Organoids", a: "bioengineered-tooth-germ", b: "ipsc-tooth-organoid" }
+]);
 
 function makeTabs(id, items) {
   const el = document.getElementById(id);
@@ -160,8 +435,8 @@ function makeTabs(id, items) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths']]);
-makeTabs('tooth-tabs', [['home', 'Atlas'], ['methods', 'Methods'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['organ', 'Organ'], ['trauma', 'Trauma']]);
+makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths']]);
+makeTabs('tooth-tabs', [['home', 'Atlas'], ['methods', 'Methods'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['organ', 'Organ'], ['trauma', 'Trauma']]);
 
 const hair = document.getElementById('hair');
 const tooth = document.getElementById('tooth');
@@ -194,3 +469,34 @@ function renderLab() {
 document.getElementById('nw').addEventListener('input', renderLab);
 renderLab();
 document.getElementById('dock-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+// Dark / Light Mode Toggle
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  const isDark = theme === 'dark';
+  const icon = document.getElementById('theme-icon');
+  const text = document.getElementById('theme-text');
+  if (icon) icon.textContent = isDark ? '🌙' : '☀️';
+  if (text) text.textContent = isDark ? 'Dark' : 'Light';
+  try { localStorage.setItem('anagen_theme', theme); } catch (_) {}
+}
+
+const themeToggle = document.getElementById('theme-toggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme || 'dark';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+  });
+}
+
+(function initTheme() {
+  let saved = null;
+  try { saved = localStorage.getItem('anagen_theme'); } catch (_) {}
+  if (saved === 'light' || saved === 'dark') {
+    applyTheme(saved);
+  } else {
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(prefersLight ? 'light' : 'dark');
+  }
+})();
