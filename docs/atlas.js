@@ -1,3 +1,17 @@
+const vdphl01Response = await fetch(new URL("./data/vdphl01.json", import.meta.url));
+if (!vdphl01Response.ok) throw new Error("The shared VDPHL01 trial record could not be loaded.");
+const vdphl01 = await vdphl01Response.json();
+const vdphl01Review = (record) => {
+  const sources = record.review.sources.map((source) =>
+    '<a href="' + source.url + '" target="_blank" rel="noreferrer">' + source.label + '</a>'
+  ).join(", ");
+  const trials = record.registryIds.map((trial) =>
+    '<a href="' + trial.url + '" target="_blank" rel="noreferrer">Study ' + trial.study + ' (' + trial.id + ')</a>'
+  ).join(", ");
+  return 'Reviewed ' + record.review.date + ' · Sources: ' + sources + ' · Registry: ' + trials +
+    ' · ' + record.sourceStatus;
+};
+
 const norwood = [
   { stage: 1, label: "I", title: "No recession", visible: 1, dormant: 0.02 },
   { stage: 2, label: "II", title: "Temporal recession", visible: 0.88, dormant: 0.08 },
@@ -29,7 +43,7 @@ const treatments = [
 const pipeline = [
   ["Clascoterone 5%", "Cosmo", "Phase 3 complete; filings planned", "2025-2026", "Topical androgen-receptor antagonist. Same molecule as Winlevi, 10x concentration.", "SCALP-1/2 are listed as completed. Cosmo reports hair-count gains in 1,465 men and 12-month extension data. Its April 2026 update says US/EU submissions are being prepared, with a US filing planned for early 2027; no approval is implied.", "First new AGA mechanism at FDA scale in ~30 years if approved.", '<p class="faint">Reviewed on 2026-09-28 · Sources: <a href="https://clinicaltrials.gov/study/NCT05910450">SCALP-1 registry</a>, <a href="https://clinicaltrials.gov/study/NCT05914805">SCALP-2 registry</a>, <a href="https://www.cosmohealthconfidence.com/news/98958067-clascoterone-12-month-safety-results-ende">Cosmo update</a></p>'],
   ["PP405", "Pelage / UCLA", "Phase 3 start 2026", "2025-2026", "Topical mitochondrial pyruvate carrier inhibitor. Aims at dormant hair-follicle stem cells via a lactate switch.", "Phase 2a, 78 people, 4 weeks. Safety met; no systemic absorption detected. Signal of density gain in advanced men at week 8.", "Rescue of follicles drugs currently write off. Early, short dosing - a signal, not a prescription.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Lowry Lab / Pelage Pharmaceuticals Phase 2a clinical readout</p>'],
-  ["VDPHL01", "Veradermics", "Phase 3 positive", "April 2026", "Extended-release oral minoxidil. Same pharmacology, flatter plasma curve.", "79-86% reported improvement vs 36% placebo. NDA targeted 2026-27.", "Industrializes the pathway that already grows hair on faces by accident.", '<p class="faint">Reviewed on 2026-09-28 · Source: Veradermics Phase 3 clinical release</p>'],
+  [vdphl01.name, vdphl01.org, vdphl01.phase, vdphl01.year, vdphl01.mechanism, vdphl01.signal, vdphl01.why, '<p class="faint">' + vdphl01Review(vdphl01) + '</p>'],
   ["Follicle germ reconstitution", "OrganTech / Tsuji", "First-in-human aimed late 2026", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells. Claim: one follicle into 50-100.", "Decades of mouse and reconstituted-human work. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Tsuji Lab / RIKEN Center for Developmental Biology</p>'],
   ["HMI-115", "Hope Medicine", "Phase 2", "2024-2026", "Monoclonal antibody against the prolactin receptor.", "Early AGA signals in men and women.", "Diversifies beyond anti-androgens.", '<p class="faint">Reviewed on 2026-09-28 · Source: Hope Medicine clinical pipeline</p>'],
   ["Wound-induced neogenesis", "Academic (Ito 2007)", "Preclinical", "-", "Large full-thickness wounds in mice regenerate de novo follicles via epidermal Wnt and related programs.", "Proof the embryonic placode program can rerun after birth. Human WIHN is unreliable.", "Existence proof for Invent. Not a clinic you book.", '<p class="faint">Reviewed on 2026-09-28 · Source: Nature / Cell Stem Cell publications</p>'],
@@ -64,17 +78,17 @@ const hairCompareTrials = [
     review: "Reviewed 2026-09-28 · Lowry Lab / Pelage Phase 2a readout"
   },
   {
-    id: "vdphl01",
-    name: "VDPHL01",
-    sponsor: "Veradermics",
-    phase: "Phase 3 positive",
-    target: "KATP channels (Systemic Minoxidil)",
+    id: vdphl01.id,
+    name: vdphl01.name,
+    sponsor: vdphl01.sponsor,
+    phase: vdphl01.phase,
+    target: vdphl01.comparison.target,
     horizon: "I · Rescue",
-    mechanism: "Extended-release oral minoxidil formulation delivering flattened plasma drug concentration to maximize follicle exposure while minimizing cardiovascular peak Cmax.",
-    evidence: "Phase 3 multicenter RCT reported 79-86% hair density response vs 36% for placebo.",
-    limits: "Does not inhibit DHT production or androgen receptor binding; ongoing cardiovascular monitoring still required.",
-    timeline: "NDA targeted for 2026-2027.",
-    review: "Reviewed 2026-09-28 · Veradermics Phase 3 release"
+    mechanism: vdphl01.mechanism,
+    evidence: vdphl01.signal,
+    limits: vdphl01.comparison.limits,
+    timeline: vdphl01.comparison.timeline,
+    review: vdphl01Review(vdphl01)
   },
   {
     id: "tsuji-germ",
@@ -282,12 +296,17 @@ function cards(target, rows) {
   ).join('');
 }
 function panels(el, items) { el.innerHTML = items.join(''); }
+function reviewStatus(review) {
+  return review && review.includes('<a href=')
+    ? review
+    : '<p class="faint">Unverified · no linked source is attached to this record.</p>';
+}
 
 cards(document.getElementById('hair-horizons'), hairHorizons);
 panels(document.getElementById('hair-stack'), treatments.map(([n, aka, ev, h, m, c, no]) =>
   '<article class="panel"><p class="meta">' + ev + ' \u00b7 ' + h + '</p><h3>' + n + '</h3>' + (aka ? '<p class="faint">' + aka + '</p>' : '') + '<p class="muted">' + m + '</p><p class="can">Can: ' + c + '</p><p class="cannot">Cannot: ' + no + '</p></article>'));
 panels(document.getElementById('hair-pipe'), pipeline.map(([n, org, phase, year, m, s, w, review = '']) =>
-  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + ' \u00b7 ' + year + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + w + '</p>' + review + '</article>'));
+  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + ' \u00b7 ' + year + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + w + '</p>' + reviewStatus(review) + '</article>'));
 panels(document.getElementById('hair-bio'), [].concat(
   anatomy.map(([n, f]) => '<article class="panel"><h3>' + n + '</h3><p class="muted">' + f + '</p></article>'),
   cycle.map(([n, s, b]) => '<article class="panel"><p class="meta">' + s + '</p><h3>' + n + '</h3><p class="muted">' + b + '</p></article>'),
@@ -302,7 +321,7 @@ panels(document.getElementById('tooth-methods'), methods.map(([rank, title, body
 panels(document.getElementById('tooth-stack'), toothTreatments.map(([n, ev, h, m, c, no]) =>
   '<article class="panel"><p class="meta">' + ev + ' \u00b7 ' + h + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="can">Can: ' + c + '</p><p class="cannot">Cannot: ' + no + '</p></article>'));
 panels(document.getElementById('tooth-pipe'), toothPipe.map(([n, org, phase, m, s, v, review = '']) =>
-  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + v + '</p>' + review + '</article>'));
+  '<article class="panel"><p class="meta">' + org + ' \u00b7 ' + phase + '</p><h3>' + n + '</h3><p class="muted">' + m + '</p><p class="muted">' + s + '</p><p class="faint">' + v + '</p>' + reviewStatus(review) + '</article>'));
 panels(document.getElementById('tooth-org'), toothAnatomy.map(([n, f]) =>
   '<article class="panel"><h3>' + n + '</h3><p class="muted">' + f + '</p></article>'));
 panels(document.getElementById('tooth-trauma'), trauma.map(([q, a]) =>
@@ -363,8 +382,8 @@ function setupComparison(containerId, trialList, presets) {
           '<span class="row-val muted">' + t.timeline + '</span>' +
         '</div>' +
         '<div class="compare-row">' +
-          '<span class="row-label">Primary Source Verification</span>' +
-          '<span class="row-val faint tiny">' + t.review + '</span>' +
+          '<span class="row-label">Source review</span>' +
+          '<span class="row-val faint tiny">' + (t.review && t.review.includes('<a href=') ? t.review : 'Unverified · no linked source is attached to this record.') + '</span>' +
         '</div>' +
       '</article>'
     );

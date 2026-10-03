@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Anagen reviewed trial record",
+  "type": "object",
+  "required": ["id", "name", "phase", "status", "sourceStatus", "registryIds", "milestones", "outcomes", "review"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "phase": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["planned", "authorized", "recruiting", "completed", "results-reported", "approved"] },
+    "sourceStatus": { "type": "string", "minLength": 1 },
+    "registryIds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["study", "id", "url"],
+        "properties": {
+          "study": { "type": "string", "minLength": 1 },
+          "id": { "type": "string", "pattern": "^NCT[0-9]{8}$" },
+          "url": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["study", "phase", "status", "sourceDate", "outcome"],
+        "properties": {
+          "study": { "type": "string" },
+          "phase": { "type": "string" },
+          "status": { "enum": ["planned", "authorized", "recruiting", "completed", "results-reported", "approved"] },
+          "sourceDate": { "type": "string", "format": "date" },
+          "outcome": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "outcomes": { "type": "object", "minProperties": 1 },
+    "review": {
+      "type": "object",
+      "required": ["date", "sources"],
+      "properties": {
+        "date": { "type": "string", "format": "date" },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["label", "url", "sourceDate"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" },
+              "sourceDate": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ function PipelinePage() {
       <PageHead
         kicker="Volume III"
         title="What is actually in humans."
-        lede="Ignore the clinic brochure. These are programs with protocols, phases, and — in a few cases — Phase 3 numbers. The core map dates to August 2026; see individual review dates where shown."
+        lede="These are programs with protocols, phases, and reported clinical outcomes. The core map dates to August 2026; individual rows show later review dates and sources where checked."
       />
 
       <ol className="relative space-y-4 border-l border-border pb-12 ml-3 sm:ml-4">
@@ -22,23 +22,47 @@ function PipelinePage() {
                 <p className="font-mono text-xs text-faint">
                   {item.year} · {item.phase}
                 </p>
-                <p className="text-xs text-muted">{horizonLabel(item.horizon)}</p>
+                <p className="text-xs text-muted">
+                  {horizonLabel(item.horizon)} · {item.status ?? "unverified"}
+                </p>
               </div>
               <h2 className="mt-2 font-display text-2xl tracking-tight">{item.name}</h2>
               <p className="text-sm text-muted">{item.org}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted">{item.mechanism}</p>
               <p className="mt-3 text-sm leading-relaxed text-fg">{item.signal}</p>
               <p className="mt-3 text-sm leading-relaxed text-faint">{item.why}</p>
-              {item.review && (
-                <p className="mt-3 text-xs leading-relaxed text-faint">
-                  Reviewed on {item.review.date} · Sources: {item.review.sources.map((source, index) => (
-                    <span key={source.url}>
-                      {index > 0 ? ", " : ""}
-                      <a href={source.url} className="underline" target="_blank" rel="noreferrer">{source.label}</a>
-                    </span>
-                  ))}
+              {item.milestones?.map((milestone) => (
+                <p key={milestone.study} className="mt-2 text-xs leading-relaxed text-faint">
+                  Study {milestone.study}: {milestone.status} · source update {milestone.sourceDate} · {milestone.outcome}
                 </p>
-              )}
+              ))}
+              <div className="mt-3 text-xs leading-relaxed text-faint">
+                {item.review ? (
+                  <>
+                    Reviewed on {item.review.date} · Sources: {item.review.sources.map((source, index) => (
+                      <span key={source.url}>
+                        {index > 0 ? ", " : ""}
+                        <a href={source.url} className="underline" target="_blank" rel="noreferrer">
+                          {source.label}{source.sourceDate ? ` (${source.sourceDate})` : ""}
+                        </a>
+                      </span>
+                    ))}
+                    {item.registryIds?.length ? (
+                      <span> · Registry: {item.registryIds.map((trial, index) => (
+                        <span key={trial.id}>
+                          {index > 0 ? ", " : ""}
+                          <a href={trial.url} className="underline" target="_blank" rel="noreferrer">
+                            Study {trial.study} ({trial.id})
+                          </a>
+                        </span>
+                      ))}</span>
+                    ) : null}
+                    {item.sourceStatus ? <span> · {item.sourceStatus}</span> : null}
+                  </>
+                ) : (
+                  <span>Unverified · no linked source or review date is attached to this record.</span>
+                )}
+              </div>
             </article>
           </li>
         ))}

@@ -1,0 +1,88 @@
+{
+  "id": "vdphl01",
+  "name": "VDPHL01",
+  "sponsor": "Veradermics",
+  "org": "Veradermics",
+  "phase": "Study 302 positive topline (Phase 2/3); confirmatory Phase 3 Study 304 readout planned",
+  "year": "April–August 2026",
+  "mechanism": "Extended-release oral minoxidil formulation.",
+  "signal": "In Study 302 (519 men; six-month topline), the sponsor reported co-primary objective non-vellus target-area hair-count changes of +30.3/+33.0 hairs/cm² for once-/twice-daily arms versus +7.3 for placebo, and co-primary AAIRS ‘improved’/‘much improved’ responses of 48.4%/62.9% versus 13.4%. The often-quoted 79.3%/86.0% versus 35.6% is the secondary patient-reported ‘any improvement’ endpoint, not hair density. As of its August 2026 update, the sponsor anticipated confirmatory Phase 3 Study 304 topline data in 2H26; no Study 304 result or approval is claimed here.",
+  "why": "A sponsor-reported six-month signal in men, with patient-reported and objective hair-count outcomes kept distinct. This record does not establish durability, independent replication, or approval.",
+  "horizon": "rescue",
+  "status": "results-reported",
+  "sourceStatus": "sponsor-reported topline; no peer-reviewed report is linked in this record",
+  "population": "Study 302: men with mild-to-moderate pattern hair loss",
+  "followUp": "Six-month topline",
+  "denominators": {
+    "onceDaily": 171,
+    "twiceDaily": 175,
+    "placebo": 173,
+    "total": 519
+  },
+  "registryIds": [
+    { "study": "302", "id": "NCT06724614", "url": "https://clinicaltrials.gov/study/NCT06724614" },
+    { "study": "304", "id": "NCT06972264", "url": "https://clinicaltrials.gov/study/NCT06972264" }
+  ],
+  "milestones": [
+    {
+      "study": "302",
+      "phase": "Phase 2/3",
+      "status": "results-reported",
+      "sourceDate": "2026-04-27",
+      "outcome": "Positive six-month topline reported by sponsor"
+    },
+    {
+      "study": "304",
+      "phase": "Phase 3",
+      "status": "planned",
+      "sourceDate": "2026-08-11",
+      "outcome": "Sponsor anticipated confirmatory topline data in the second half of 2026; no result is recorded here"
+    }
+  ],
+  "outcomes": {
+    "objectiveHairCount": {
+      "type": "co-primary",
+      "endpoint": "Mean change in non-vellus target-area hair count at Month 6",
+      "values": { "onceDaily": 30.3, "twiceDaily": 33.0, "placebo": 7.3 },
+      "unit": "hairs/cm²"
+    },
+    "patientReportedImproved": {
+      "type": "co-primary",
+      "endpoint": "AAIRS response of improved or much improved at Month 6",
+      "values": { "onceDailyPercent": 48.4, "twiceDailyPercent": 62.9, "placeboPercent": 13.4 },
+      "unit": "percent"
+    },
+    "patientReportedAnyImprovement": {
+      "type": "secondary",
+      "endpoint": "AAIRS response including a little improved, improved, or much improved at Month 6",
+      "values": { "onceDailyPercent": 79.3, "twiceDailyPercent": 86.0, "placeboPercent": 35.6 },
+      "unit": "percent",
+      "interpretation": "Patient-reported hair coverage; not an objective hair-density or hair-count result"
+    }
+  },
+  "comparison": {
+    "target": "Minoxidil formulation; clinical outcome record",
+    "timeline": "As of the sponsor’s August 11, 2026 update, confirmatory Phase 3 Study 304 topline data were expected in 2H26.",
+    "limits": "Sponsor topline data; Study 302 evaluated men at six months. Study 304 confirmation, durability, independent replication, and regulatory approval are not established by these sources."
+  },
+  "review": {
+    "date": "2026-10-03",
+    "sources": [
+      {
+        "label": "Study 302 topline release",
+        "url": "https://ir.veradermics.com/news-releases/news-release-details/veradermics-oral-vdphl01-achieved-early-consistent-and-robust",
+        "sourceDate": "2026-04-27"
+      },
+      {
+        "label": "Study 302 presentation",
+        "url": "https://ir.veradermics.com/static-files/11e390e1-936f-4c55-abad-ed8e2df25870",
+        "sourceDate": "2026-04"
+      },
+      {
+        "label": "Q2 clinical update",
+        "url": "https://ir.veradermics.com/news-releases/news-release-details/veradermics-reports-second-quarter-2026-financial-results-and",
+        "sourceDate": "2026-08-11"
+      }
+    ]
+  }
+}

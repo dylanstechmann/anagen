@@ -5,6 +5,10 @@ import { cn } from "@/lib/utils";
 
 export function DensityLab() {
   const [stage, setStage] = useState<(typeof norwood)[number]["stage"]>(5);
+  const [rescueNowShare, setRescueNowShare] = useState(0.38);
+  const [pipelineRescueShare, setPipelineRescueShare] = useState(0.62);
+  const [multiplyFactor, setMultiplyFactor] = useState(1.8);
+  const [inventFactor, setInventFactor] = useState(1.35);
   const row = norwood.find((n) => n.stage === stage) ?? norwood[4]!;
 
   const model = useMemo(() => {
@@ -12,12 +16,10 @@ export function DensityLab() {
     const visible = Math.round(original * row.visible);
     const dormant = Math.round(original * row.dormant);
     const gone = Math.max(0, original - visible - dormant);
-    const rescueNow = Math.round(visible + dormant * 0.38);
-    const rescuePipeline = Math.round(visible + dormant * 0.62);
-    const multiply = Math.round(
-      Math.min(original * 1.15, (visible + dormant) * 1.8 + 40),
-    );
-    const invent = Math.round(original * 1.35);
+    const rescueNow = Math.round(visible + dormant * rescueNowShare);
+    const rescuePipeline = Math.round(visible + dormant * pipelineRescueShare);
+    const multiply = Math.round((visible + dormant) * multiplyFactor);
+    const invent = Math.round(original * inventFactor);
     return {
       original,
       visible,
@@ -28,8 +30,11 @@ export function DensityLab() {
       multiply,
       invent,
       massInvent: Math.round((invent / original) * 100),
+      rescueRange: [visible, visible + dormant] as const,
+      multiplyRange: [Math.round((visible + dormant) * 1), Math.round((visible + dormant) * 2)] as const,
+      inventRange: [original, Math.round(original * 1.5)] as const,
     };
-  }, [row]);
+  }, [row, rescueNowShare, pipelineRescueShare, multiplyFactor, inventFactor]);
 
   const chart = [
     { name: "Visible", v: model.visible },
@@ -39,7 +44,7 @@ export function DensityLab() {
     { name: "Invent", v: model.invent },
     { name: "Youth", v: model.original },
   ];
-  const max = model.invent;
+  const max = Math.max(...chart.map((item) => item.v));
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
@@ -65,8 +70,8 @@ export function DensityLab() {
           ))}
         </div>
         <p className="mt-4 text-sm text-muted">
-          Stage {row.label} — {row.title}. Model of a {ROI_CM2} cm² crown field at{" "}
-          {YOUNG_DENSITY} hairs/cm² youthful density. Not a diagnosis.
+          Stage {row.label} — {row.title}. Teaching scenario for a {ROI_CM2} cm² crown
+          field with an assumed youthful reference of {YOUNG_DENSITY} hairs/cm².
         </p>
         <div className="mt-5 h-44 overflow-hidden rounded-xl border border-border bg-bg text-fg">
           <HairField
@@ -82,8 +87,8 @@ export function DensityLab() {
           <Stat label="Visible now" value={model.visible} unit="/cm²" />
           <Stat label="Dormant organ" value={model.dormant} unit="/cm²" />
           <Stat label="Likely gone" value={model.gone} unit="/cm²" />
-          <Stat label="Rescue now" value={model.rescueNow} unit="/cm²" />
-          <Stat label="Multiply" value={model.multiply} unit="/cm²" />
+          <Stat label="Rescue scenario" value={model.rescueNow} unit="/cm²" hint="assumed" />
+          <Stat label="Multiply scenario" value={model.multiply} unit="/cm²" hint="assumed" />
           <Stat
             label="Invent vs youth"
             value={model.massInvent}
@@ -91,6 +96,16 @@ export function DensityLab() {
             hint="theoretical"
           />
         </dl>
+        <section className="mt-6 rounded-xl border border-border bg-surface p-4" aria-label="Scenario assumptions">
+          <h2 className="text-sm font-semibold text-fg">Illustrative assumptions</h2>
+          <p className="mt-1 text-xs leading-relaxed text-muted">
+            These controls are teaching inputs, not measured response rates or treatment forecasts.
+          </p>
+          <ScenarioSlider label="Dormant share rescued · current scenario" value={rescueNowShare} min={0} max={1} onChange={setRescueNowShare} />
+          <ScenarioSlider label="Dormant share rescued · pipeline scenario" value={pipelineRescueShare} min={0} max={1} onChange={setPipelineRescueShare} />
+          <ScenarioSlider label="Multiply scenario factor" value={multiplyFactor} min={1} max={2} step={0.05} onChange={setMultiplyFactor} suffix="×" />
+          <ScenarioSlider label="Invent scenario vs reference" value={inventFactor} min={1} max={1.5} step={0.05} onChange={setInventFactor} suffix="×" />
+        </section>
         <ul className="mt-6 space-y-2.5">
           {chart.map((rowBar) => (
             <li
@@ -111,13 +126,47 @@ export function DensityLab() {
           ))}
         </ul>
         <p className="mt-5 max-w-prose text-sm leading-relaxed text-muted">
-          Rescue can reclaim a fraction of dormant units. Transplant moves hair
-          from the back; it does not mint organs. Multiply is the first way the
-          count can rise. Invent is the only way the field exceeds childhood —
-          and it is still a research program, not a clinic.
+          Sensitivity spans from these controls are {model.rescueRange[0]}–{model.rescueRange[1]} hairs/cm² for
+          rescue, {model.multiplyRange[0]}–{model.multiplyRange[1]} for multiply, and
+          {model.inventRange[0]}–{model.inventRange[1]} for invent. These are arithmetic
+          scenario bounds, not expected outcomes. No treatment response is predicted.
         </p>
       </div>
     </div>
+  );
+}
+
+function ScenarioSlider({
+  label,
+  value,
+  min,
+  max,
+  step = 0.01,
+  onChange,
+  suffix = "%",
+}: {
+  label: string;
+  value: number;
+  min: number;
+  max: number;
+  step?: number;
+  onChange: (value: number) => void;
+  suffix?: string;
+}) {
+  const shown = suffix === "%" ? `${Math.round(value * 100)}%` : `${value.toFixed(2)}${suffix}`;
+  return (
+    <label className="mt-3 block text-xs text-muted">
+      <span className="flex justify-between gap-4"><span>{label}</span><span className="font-mono text-fg">{shown}</span></span>
+      <input
+        className="mt-2 w-full accent-current"
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+      />
+    </label>
   );
 }
 

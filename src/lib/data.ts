@@ -1,3 +1,5 @@
+import vdphl01Record from "../../docs/data/vdphl01.json";
+
 export type Horizon = "rescue" | "multiply" | "invent";
 export type Evidence =
   | "fda"
@@ -9,7 +11,15 @@ export type Evidence =
   | "preclinical"
   | "theoretical";
 
-export const AS_OF = "Core map · August 2026";
+export type TrialStatus =
+  | "planned"
+  | "authorized"
+  | "recruiting"
+  | "completed"
+  | "results-reported"
+  | "approved";
+
+export const AS_OF = "Core map · August 2026; VDPHL01 reviewed 2026-10-03";
 
 export const horizons: {
   id: Horizon;
@@ -231,7 +241,37 @@ export type PipelineItem = {
   signal: string;
   why: string;
   horizon: Horizon;
-  review?: { date: string; sources: { label: string; url: string }[] };
+  status?: TrialStatus;
+  sourceStatus?: string;
+  registryIds?: { study: string; id: string; url: string }[];
+  milestones?: {
+    study: string;
+    phase: string;
+    status: TrialStatus;
+    sourceDate: string;
+    outcome: string;
+  }[];
+  review?: { date: string; sources: { label: string; url: string; sourceDate?: string }[] };
+};
+
+const parseTrialStatus = (value: string): TrialStatus => {
+  const allowed: TrialStatus[] = [
+    "planned", "authorized", "recruiting", "completed", "results-reported", "approved",
+  ];
+  if (!allowed.includes(value as TrialStatus)) {
+    throw new Error(`Unsupported VDPHL01 trial status: ${value}`);
+  }
+  return value as TrialStatus;
+};
+
+const vdphl01PipelineItem: PipelineItem = {
+  ...vdphl01Record,
+  horizon: vdphl01Record.horizon as Horizon,
+  status: parseTrialStatus(vdphl01Record.status),
+  milestones: vdphl01Record.milestones.map((milestone) => ({
+    ...milestone,
+    status: parseTrialStatus(milestone.status),
+  })),
 };
 
 export const pipeline: PipelineItem[] = [
@@ -269,19 +309,7 @@ export const pipeline: PipelineItem[] = [
     why: "If the dormant-organ model is right, this is rescue of follicles drugs currently write off. Early, short dosing, secondary efficacy — treat as a signal, not a prescription.",
     horizon: "rescue",
   },
-  {
-    id: "vdphl01",
-    name: "VDPHL01",
-    org: "Veradermics",
-    phase: "Phase 3 positive",
-    year: "April 2026",
-    mechanism:
-      "Extended-release oral minoxidil. Same pharmacology, flatter plasma curve, intended as the first oral specifically labeled for AGA.",
-    signal:
-      "Phase 3 primary endpoint: 79–86% of participants reported improvement vs 36% placebo. NDA targeted 2026–27; possible approval 2027–28.",
-    why: "Does not invent a pathway. Industrializes the one that already grows hair on faces by accident.",
-    horizon: "rescue",
-  },
+  vdphl01PipelineItem,
   {
     id: "organtech",
     name: "Follicle germ reconstitution",
