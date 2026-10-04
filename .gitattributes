@@ -1,0 +1,2 @@
+# Keep the checked-out working tree normalized; Git history stores canonical LF.
+* text=auto eol=lf

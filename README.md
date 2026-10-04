@@ -23,7 +23,7 @@ The Pages site is a static reader of the atlas (hair + tooth). No account. No AP
 - **Side-by-Side Trial Comparison**: Interactive trial evaluation panel (`Compare` tab) for both hair and tooth programs:
   - Compares candidates across biological targets, mechanisms of action, clinical trial phases, human evidence, and honest biological limitations.
   - One-click quick comparison presets (e.g. *Clascoterone vs PP405*, *Rescue vs Multiply*, *TRG035 vs Bioengineered Germ*, *PDL Sheets vs REGROTH*).
-  - Every trial record links directly to primary sources and clinical registries reviewed as of September 2026.
+  - VDPHL01 uses a shared structured record with linked primary sources, registries, and its October 3, 2026 review date. Other entries remain visibly unverified until their source support is individually reviewed and linked.
 
 The full TanStack Start app still runs locally:
 
@@ -39,7 +39,14 @@ Open [http://localhost:8080](http://localhost:8080).
 ```bash
 npm test
 npm run typecheck
+node scripts/source-staleness.mjs
 ```
+
+The source review-age check covers structured records in `docs/data/`. Invalid,
+future, or impossible dates and incomplete source/milestone metadata report
+`UNVERIFIED`; reviews older than 90 days report `STALE`. It checks local metadata
+and does not certify external source availability or claim support. The legacy
+atlas entries do not yet have complete structured records.
 
 ## GitHub Pages
 
