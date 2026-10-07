@@ -2,6 +2,8 @@
 
 A research atlas of two mini-organs: the hair follicle and the tooth.
 
+This is a personal hobby and learning project, developed with substantial assistance from AI coding tools.
+
 Hair loss is usually miniaturization, not erasure. A lost tooth is six tissues, not a white gap. This site's core map dates to August 2026; updated trial records show individual review dates and sources. It maps approved approaches, trials, and where reconstitution (a germ, not a cream or a screw) actually sits.
 
 Not medical or dental advice.
