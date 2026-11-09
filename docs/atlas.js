@@ -160,7 +160,7 @@ const cycle = [
 ];
 
 const genes = [
-  ["AR", "Androgen receptor in the follicle. Explains why brothers diverge. Topical antagonists (clascoterone) point here."],
+  ["AR", "Androgen receptor in the dermal papilla. Explains why brothers diverge. Clascoterone blocks that receiver from outside. A DNA edit would have to change it inside each papilla, and still would not be a whole-scalp cure."],
   ["EDA / EDAR", "Placode-density pathway. Gain-of-function EDAR already thickens hair. Follicle number is genetically tunable."],
   ["Wnt / beta-catenin", "On-switch for anagen and neogenesis. Too much, too long: stem-cell exhaustion and tumor risk."],
   ["Sonic hedgehog", "Required to complete a follicle after the placode. Also required for wound-induced neogenesis."],
@@ -310,7 +310,12 @@ panels(document.getElementById('hair-pipe'), pipeline.map(([n, org, phase, year,
 panels(document.getElementById('hair-bio'), [].concat(
   anatomy.map(([n, f]) => '<article class="panel"><h3>' + n + '</h3><p class="muted">' + f + '</p></article>'),
   cycle.map(([n, s, b]) => '<article class="panel"><p class="meta">' + s + '</p><h3>' + n + '</h3><p class="muted">' + b + '</p></article>'),
-  genes.map(([n, r]) => '<article class="panel"><p class="meta">Gene</p><h3>' + n + '</h3><p class="muted">' + r + '</p></article>')
+  genes.map(([n, r, meta]) => '<article class="panel"><p class="meta">' + (meta || 'Gene') + '</p><h3>' + n + '</h3><p class="muted">' + r + '</p></article>'),
+  [
+    ['Stop pattern balding', 'Dermal papilla of each androgen-sensitive follicle. DHT is made by 5-alpha-reductase; the androgen receptor in the papilla hears it and the organ miniaturizes. A local DNA change would have to blunt that receiver, or the enzyme, inside those papillae only. One edit does not rewrite a polygenic scalp. Missed follicles keep shrinking. A scarred scalp has no papilla left to edit. Theoretical. Not a trial row. UNVERIFIED — no primary source for a human follicle gene-edit program was opened for this note.', 'DNA edit'],
+    ['Change hair color', 'Melanocyte stem cells, so the next shaft inherits it. Color is eumelanin versus pheomelanin. MC1R is the classic switch. The shaft already grown is dead keratin. Gray is mostly loss of those stem cells, not a color gene stuck on the wrong setting. A pigment edit does not stop DHT. Theoretical. Not a trial row. UNVERIFIED — no primary source for a human hair-color gene-edit program was opened for this note.', 'DNA edit'],
+    ['Edit limit', 'A scalp is tens of thousands of separate organs. An edit that misses most of them is a mosaic, not a stop to balding. Germline editing changes a future person, not a follicle you already have. This map does not describe how to perform either edit.', 'DNA edit']
+  ].map(([n, r, meta]) => '<article class="panel"><p class="meta">' + meta + '</p><h3>' + n + '</h3><p class="muted">' + r + '</p></article>')
 ));
 panels(document.getElementById('hair-myths'), myths.map(([q, a]) =>
   '<article class="panel"><h3>' + q + '</h3><p class="muted">' + a + '</p></article>'));

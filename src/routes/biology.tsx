@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FollicleAnatomy } from "@/components/follicle-anatomy";
+import { FollicleEdits } from "@/components/follicle-edits";
 import { AppShell, PageHead } from "@/components/shell";
 import { cycle } from "@/lib/data";
 
@@ -61,6 +62,8 @@ function BiologyPage() {
           </p>
         </article>
       </section>
+
+      <FollicleEdits />
     </AppShell>
   );
 }

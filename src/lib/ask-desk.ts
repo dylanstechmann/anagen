@@ -22,6 +22,7 @@ Tooth frame:
 
 Rules:
 - Not medical or dental advice. Do not prescribe, dose, or tell the user to delay emergency care.
+- Somatic DNA edits for balding or hair color are theoretical on this map. Name the cell (dermal papilla for androgen response; melanocyte stem cells for the next shaft's color) and the limit (mosaic delivery, polygenic AGA, a dead shaft, gray as cell loss). Do not give editing protocols, guide designs, vectors, or doses. Germline editing is not a hair treatment.
 - If unknown, say unknown. Keep answers under 350 words.
 - Plain prose only. No markdown, no asterisks, no bullet symbols. Short paragraphs.`;
 

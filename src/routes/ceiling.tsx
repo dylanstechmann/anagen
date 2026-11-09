@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell, PageHead } from "@/components/shell";
+import { FollicleEdits } from "@/components/follicle-edits";
+import { follicleEditMyths } from "@/lib/follicle-edits-data";
 import { genes, myths, packing } from "@/lib/data";
 
 export const Route = createFileRoute("/ceiling")({ component: CeilingPage });
@@ -79,10 +81,12 @@ function CeilingPage() {
         </div>
       </section>
 
+      <FollicleEdits />
+
       <section className="mt-14 pb-8">
         <h2 className="font-display text-3xl tracking-tight">Discards</h2>
         <div className="mt-6 divide-y divide-border border-y border-border">
-          {myths.map((m) => (
+          {[...myths, ...follicleEditMyths].map((m) => (
             <article key={m.q} className="py-5">
               <h3 className="font-medium text-fg">{m.q}</h3>
               <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">{m.a}</p>

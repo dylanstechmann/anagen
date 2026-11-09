@@ -91,3 +91,14 @@ test("React and Pages render the same canonical VDPHL01 record", () => {
   assert.ok(!js.includes("79.3%/86.0%"), "Pages record must not duplicate canonical endpoint text");
   assert.ok(html.includes("VDPHL01 reviewed 2026-10-03"));
 });
+
+test("Pages biology maps follicle DNA edits as unverified limits, not a method", () => {
+  assert.ok(js.includes("DNA edit"));
+  assert.ok(js.includes("Stop pattern balding"));
+  assert.ok(js.includes("Change hair color"));
+  assert.ok(js.includes("UNVERIFIED"));
+  assert.ok(js.includes("does not describe how to perform either edit"));
+  assert.ok(html.includes("UNVERIFIED"));
+  assert.equal(js.includes("gRNA"), false);
+  assert.equal(js.includes("Cas9"), false);
+});

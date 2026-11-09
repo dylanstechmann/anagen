@@ -411,7 +411,7 @@ export const genes = [
   {
     id: "ar",
     name: "AR",
-    role: "Androgen receptor in the follicle. Poly-Q repeats and scalp expression explain why brothers diverge. Topical antagonists (clascoterone) and future HFSC-restricted editing both point here.",
+    role: "Androgen receptor in the dermal papilla. Poly-Q repeats and scalp expression explain why brothers diverge. Clascoterone blocks that receiver from outside. A DNA edit would have to change it inside each papilla, and still would not be a whole-scalp cure.",
   },
   {
     id: "edar",
@@ -468,7 +468,8 @@ export const deskPrompts = [
   "What does PP405 actually do that minoxidil does not?",
   "Why is the occipital donor resistant to DHT?",
   "Is clascoterone just topical finasteride?",
-  "What would CRISPR on scalp androgen receptors have to solve?",
+  "What would a scalp androgen-receptor edit have to solve before balding stopped?",
+  "Could a DNA edit change hair color without restoring gray?",
 ];
 
 export function evidenceLabel(e: Evidence) {
