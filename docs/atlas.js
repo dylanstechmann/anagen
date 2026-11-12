@@ -176,6 +176,72 @@ const myths = [
   ["Hair loss is one disease.", "AGA, AA, telogen effluvium, traction, scarring. JAK inhibitors can resurrect an AA scalp and do nothing for a Norwood V."]
 ];
 
+const baldScope = [
+  {
+    meta: "Triage — the diagnosis decides the route",
+    title: "One bare scalp, three different diseases",
+    body: "Complete scalp hair loss has three distinct causes with completely different prospects: alopecia totalis or universalis, where the immune system attacks otherwise-healthy follicles; advanced androgenetic alopecia (Norwood VI–VII), where decades of miniaturization leave follicles dormant and depleted; and primary cicatricial alopecia, where inflammation destroys follicles outright and replaces them with scar tissue. The same bare endpoint hides three different mechanisms, and the honest answer to whether hair can come back depends entirely on which one it is.",
+    can: "get a specific diagnosis first — it decides which route back is even on the table",
+    cannot: "treat all three the same way; drugs that work for one do nothing for the others",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://jci.org/articles/view/44478">Garza 2011, J Clin Invest</a>, <a href="https://web.archive.org/web/20220614051142/https://www.fda.gov/news-events/press-announcements/fda-approves-first-systemic-treatment-alopecia-areata">FDA press announcement, June 2022</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3855115/">Filbrandt 2013, Semin Cutan Med Surg</a></p>',
+  },
+  {
+    meta: "Alopecia totalis or universalis — the one with an approved drug route",
+    title: "Immune-driven total loss has approved JAK inhibitors",
+    body: "When total loss is the severe end of alopecia areata, the follicles are intact but under immune attack, and three JAK inhibitors carry approved labels: baricitinib (2022), ritlecitinib (2023) and deuruxolitinib (2024). The pivotal trials enrolled patients who started essentially bald. In the THRIVE-AA1 complete or near-complete-loss subgroup, the share reaching SALT ≤20 by week 24 went from 20.1% (8 mg) to 29.5% (12 mg), and long-term ritlecitinib data in alopecia totalis or universalis reached SALT ≤20 in 59.6% of patients at month 24 by observed-case counting — 36.1% under the more conservative missing-data counting, so the honest range for the hardest cases runs from about a third to just over half. These are systemic immunosuppressants carrying a boxed warning, and stopping them usually undoes the work: 10–11% of patients relapse within eight weeks, about half by roughly six months, and 80% by week 152, though re-treatment recaptured most patients in the withdrawal cohort. The Stack tab's JAK row tracks this class.",
+    can: "regrow scalp hair in a meaningful share of people who start fully bald, using approved systemic therapy",
+    cannot: "work for everyone — complete-loss patients respond at the lowest rates in every trial — or hold the hair without ongoing treatment",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://www.nejm.org/doi/full/10.1056/nejmoa2110343">King et al, N Engl J Med (BRAVE-AA1/AA2)</a>, <a href="https://www.jaad.org/article/S0190-9622(24)02550-7/fulltext">THRIVE-AA1, J Am Acad Dermatol</a>, <a href="https://www.fda.gov/drugs/development-approval-process-drugs/drug-trials-snapshots/litfulo">FDA drug trials snapshot, Litfulo</a>, <a href="https://doi.org/10.1093/bjd/ljae365">ALLEGRO-LT, Br J Dermatol</a>, <a href="https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-leqselvi">FDA drug trials snapshot, Leqselvi</a>, <a href="https://jamanetwork.com/journals/jamadermatology/fullarticle/2822460">JAMA Dermatol withdrawal cohort</a></p>',
+  },
+  {
+    meta: "Advanced pattern loss, Norwood VI–VII — decades of miniaturization",
+    title: "Dormant, depleted, but not all gone",
+    body: "A long-bald pattern scalp is not dead tissue. Garza 2011 showed that bald scalp keeps its hair-follicle stem cells in the bulge, with roughly a tenfold depletion of the CD200+/CD34+ progenitor cells that actually produce hair. Khunkhet 2021 measured Norwood VI–VII scalps carrying follicular structures about 25% below controls, with fewer still after more decades of baldness. Whiting 1993 drew the practical floor: scalps under two follicular structures per square millimeter showed essentially no minoxidil response, while scalps above four per square millimeter regrew in 86% of treated patients. On a decades-bald crown many follicles have slipped below any drug-reachable line, which is why today's approved topical and oral options rarely reconstruct a long-gone hairline. That is absence of evidence, not proof of impossibility — the stem cells persist, so revival stays biologically thinkable even though no current medication has demonstrated it at scale.",
+    can: "preserve and often partially revive the follicles that are still drug-reachable, especially in earlier-stage loss",
+    cannot: "promise regrowth from a decades-bald Norwood VI–VII crown with today's creams or pills alone",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://jci.org/articles/view/44478">Garza 2011, J Clin Invest</a>, <a href="https://www.frontiersin.org/articles/10.3389/fmed.2021.790597/full">Khunkhet et al, Front Med 2021</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/8496421/">Whiting 1993, J Am Acad Dermatol</a></p>',
+  },
+  {
+    meta: "Surgical redistribution — donor-supply arithmetic",
+    title: "Transplant is supply-to-demand math, and supply is small",
+    body: "A transplant never creates hair; it relocates follicles that resist pattern loss from the donor rim into bare zones. The average scalp holds about 50,000 follicular units but only about 12,500 of them sit in the safe permanent donor zone, and practice guidelines put lifetime safe harvest at 4,000-6,500 grafts. A completely bald scalp would need tens of thousands of grafts to approach natural density, so a worst-case Norwood VII rebuild lands around 18% of normal density in the covered area — a visible improvement, never a full head. Long-term take matters too: pooled case-series data put surviving grafts at 82.7% in the first year, decaying to 39.6% over years 4–6, which is why careful surgeons weight density expectations downward.",
+    can: "rebuild a hairline and frontal framing with permanent hair — the only route with a decades-long track record on long-bald skin",
+    cannot: "reach full density on a fully bald scalp; donor supply caps the result before the first incision",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6371726/">Venkataram and Mysore, J Cutan Aesthet Surg</a>, <a href="https://jcasonline.com/hair-transplant-practice-guidelines/">JCASTF practice guidelines</a>, <a href="https://doi.org/10.1097/dss.0000000000004707">Graft-survival systematic review, Dermatol Surg</a></p>',
+  },
+  {
+    meta: "Cicatricial alopecia — the hard wall",
+    title: "Scarring leaves nothing to revive",
+    body: "In the primary cicatricial alopecias — lichen planopilaris, frontal fibrosing alopecia, discoid lupus, folliculitis decalvans — inflammatory destruction kills the follicle together with its bulge stem-cell niche and replaces both with fibrous tissue. Filbrandt 2013 states the mechanism plainly: the target of destruction is the stem-cell niche itself, so once an area has scarred, its follicles are gone, not dormant. Transplanting into selected scarred areas is possible but the take is poor and unpredictable compared with healthy skin. This is the one form of complete hair loss with no drug route back.",
+    can: "stop active scarring inflammation early and keep the follicles that remain outside the scars",
+    cannot: "regrow follicles from established scar — there is nothing left to stimulate",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3855115/">Filbrandt 2013, Semin Cutan Med Surg</a></p>',
+  },
+  {
+    meta: "Neogenesis frontier — growing entirely new follicles",
+    title: "Regeneration is in the lab and early trials, not the clinic",
+    body: "The route that would matter most on a completely bald scalp — growing entirely new follicles — is the least mature. Wound-induced hair neogenesis is real in mice (Ito 2007, Wnt-dependent de novo follicles forming in wounded adult skin) but has never been reproduced at scale in humans. iPSC-derived skin organoids grow hair-bearing human skin in a dish (Lee 2020) but are not a tissue-ready clinical product, and the best-funded iPSC hair company, Stemson Therapeutics, shut down in December 2024. HairClone began pilot clinical testing of autologous follicle-cell therapy in 2026, and Pelage's PP405 AWAKEN trial (NCT07819435, first patient dosed October 2026, phase 2/3, about 600 men) targets reactivating dormant follicle stem cells — but it enrolls Norwood IV–V, explicitly not fully-bald scalps. The Pipeline tab tracks these threads. As of this review no clinical-stage program has demonstrated regrowth on a follicle-absent pattern-bald scalp; a realistic window for neogenesis reaching long-bald human scalps is the 2030s.",
+    can: "watch the real clinical threads — AWAKEN, HairClone's pilot, organoid research — and re-check this tab every season",
+    cannot: "claim a working neogenesis option today; nothing in or near the clinic regrows hair where follicles are absent",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/17507982/">Ito 2007, Nature</a>, <a href="https://www.nature.com/articles/s41586-020-2352-3">Lee 2020, Nature 582:399-404</a>, <a href="https://pelagepharma.com/press-releases/pp405-awaken-trial-first-patient-dosed/">Pelage press release, Oct 2026</a>, <a href="https://clinicaltrials.gov/study/NCT07819435">ClinicalTrials.gov NCT07819435</a>, <a href="https://hairclone.me/newlook/hairclone-begins-clinical-testing/">HairClone announcement, Mar 2026</a>, <a href="https://folliclethought.com/updates/stemson-therapeutics-shuts-down/">Follicle Thought, Dec 2024</a></p>',
+  },
+  {
+    meta: "Honest gaps — where the evidence thins out",
+    title: "What nobody can promise",
+    body: "Dormant versus gone: whether a decades-bald pattern scalp still holds revivable miniaturized follicles or has lost them outright is contested in the literature, and the answer for one scalp requires biopsy and hair counts, not theory. Counting rules change headlines: the favorable 59.6% month-24 figure for totalis and universalis is the observed-case reading, while counting dropouts as failures yields 36.1%. The long-term graft-survival numbers rest on 123 patients across 8 case series, not randomized cohorts. And fully-bald scalps are minority subgroups in every trial, so individual odds on a 30-year-bald crown are extrapolation rather than measurement.",
+    can: "say which numbers are stamped, which are favorable readings, and where the base of evidence narrows",
+    cannot: "guarantee counts, survival rates or regrowth odds on the exact scalps the trials studied least",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://doi.org/10.1093/bjd/ljae365">ALLEGRO-LT, Br J Dermatol</a>, <a href="https://doi.org/10.1097/dss.0000000000004707">Graft-survival systematic review, Dermatol Surg</a>, <a href="https://www.frontiersin.org/articles/10.3389/fmed.2021.790597/full">Khunkhet et al, Front Med 2021</a></p>',
+  },
+];
+
 const toothHorizons = [
   ["I", "Rescue", "Keep the organ if the organ is still there", "A punched or burned tooth is not automatically gone. Pulp can be vital. Periodontal ligament can be salvageable for minutes to hours after avulsion. Rescue is endodontics, reimplantation, regenerative pulp protocols, and periodontal regeneration.", "Enamel does not remodel. A necrotic socket will not host a new germ."],
   ["II", "Replace", "A screw is not a tooth", "The titanium implant osseointegrates - fuses to bone. That fusion is the opposite of a periodontal ligament. Autotransplantation of a wisdom tooth is the closer cousin: a real organ, moved.", "Does not restore the original tooth."],
@@ -320,6 +386,9 @@ panels(document.getElementById('hair-bio'), [].concat(
 panels(document.getElementById('hair-myths'), myths.map(([q, a]) =>
   '<article class="panel"><h3>' + q + '</h3><p class="muted">' + a + '</p></article>'));
 
+panels(document.getElementById('hair-bald'), baldScope.map((item) =>
+  '<article class="panel"><p class="meta">' + item.meta + '</p><h3>' + item.title + '</h3><p class="muted">' + item.body + '</p><p class="can">Can: ' + item.can + '</p><p class="cannot">Cannot: ' + item.cannot + '</p>' + reviewStatus(item.review) + '</article>'));
+
 cards(document.getElementById('tooth-horizons'), toothHorizons);
 panels(document.getElementById('tooth-methods'), methods.map(([rank, title, body]) =>
   '<article class="panel"><p class="meta">' + rank + '</p><h3>' + title + '</h3><p class="muted">' + body + '</p></article>'));
@@ -459,7 +528,7 @@ function makeTabs(id, items) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths']]);
+makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths'], ['bald', 'Bald scalps']]);
 makeTabs('tooth-tabs', [['home', 'Atlas'], ['methods', 'Methods'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['organ', 'Organ'], ['trauma', 'Trauma']]);
 
 const hair = document.getElementById('hair');

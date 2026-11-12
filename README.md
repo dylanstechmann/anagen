@@ -26,6 +26,7 @@ The Pages site is a static reader of the atlas (hair + tooth). No account. No AP
   - Compares candidates across biological targets, mechanisms of action, clinical trial phases, human evidence, and honest biological limitations.
   - One-click quick comparison presets (e.g. *Clascoterone vs PP405*, *Rescue vs Multiply*, *TRG035 vs Bioengineered Germ*, *PDL Sheets vs REGROTH*).
   - VDPHL01 uses a shared structured record with linked primary sources, registries, and its October 3, 2026 review date. Other entries remain visibly unverified until their source support is individually reviewed and linked.
+- **Bald scalps lens**: disease-stratified verdict for the completely bald scalp — approved JAK-inhibitor data for alopecia totalis/universalis, Norwood VI–VII stem-cell and dropout biology, transplant donor arithmetic, scarring limits, and the neogenesis frontier — every row stamped with sources reviewed 2026-11-12.
 
 The full TanStack Start app still runs locally:
 
