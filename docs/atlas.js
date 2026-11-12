@@ -44,7 +44,7 @@ const pipeline = [
   ["Clascoterone 5%", "Cosmo", "Phase 3 complete; filings planned", "2025-2026", "Topical androgen-receptor antagonist. Same molecule as Winlevi, 10x concentration.", "SCALP-1/2 are listed as completed. Cosmo reports hair-count gains in 1,465 men and 12-month extension data. Its April 2026 update says US/EU submissions are being prepared, with a US filing planned for early 2027; no approval is implied.", "First new AGA mechanism at FDA scale in ~30 years if approved.", '<p class="faint">Reviewed on 2026-09-28 · Sources: <a href="https://clinicaltrials.gov/study/NCT05910450">SCALP-1 registry</a>, <a href="https://clinicaltrials.gov/study/NCT05914805">SCALP-2 registry</a>, <a href="https://www.cosmohealthconfidence.com/news/98958067-clascoterone-12-month-safety-results-ende">Cosmo update</a></p>'],
   ["PP405", "Pelage / UCLA", "Phase 3 start 2026", "2025-2026", "Topical mitochondrial pyruvate carrier inhibitor. Aims at dormant hair-follicle stem cells via a lactate switch.", "Phase 2a, 78 people, 4 weeks. Safety met; no systemic absorption detected. Signal of density gain in advanced men at week 8.", "Rescue of follicles drugs currently write off. Early, short dosing - a signal, not a prescription.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Lowry Lab / Pelage Pharmaceuticals Phase 2a clinical readout</p>'],
   [vdphl01.name, vdphl01.org, vdphl01.phase, vdphl01.year, vdphl01.mechanism, vdphl01.signal, vdphl01.why, '<p class="faint">' + vdphl01Review(vdphl01) + '</p>'],
-  ["Follicle germ reconstitution", "OrganTech / Tsuji", "First-in-human aimed late 2026", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells. Claim: one follicle into 50-100.", "Decades of mouse and reconstituted-human work. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take.", '<p class="faint">Reviewed on 2026-09-28 · Sources: Tsuji Lab / RIKEN Center for Developmental Biology</p>'],
+  ["Follicle germ reconstitution", "OrganTech / Tsuji", "Preclinical; preparing for clinical research", "2026+", "Bioengineered hair-follicle germs from epithelial and mesenchymal cells, now with a third accessory mesenchymal population for full-size cycling follicles. Claim: one follicle into 50-100.", "Preclinical only: full-size cycling follicles shown in mice; the official page still describes humanization and preparation for clinical research. Not a Phase 3 dataset.", "The multiply horizon. Donor ceases to be a hard cap if germs take.", '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://www.organ-tech.jp/en/business/hair_regeneration.html">OrganTech pipeline page</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/41762869/">Toyoshima et al, BBRC 2026</a></p>'],
   ["HMI-115", "Hope Medicine", "Phase 2", "2024-2026", "Monoclonal antibody against the prolactin receptor.", "Early AGA signals in men and women.", "Diversifies beyond anti-androgens.", '<p class="faint">Reviewed on 2026-09-28 · Source: Hope Medicine clinical pipeline</p>'],
   ["Wound-induced neogenesis", "Academic (Ito 2007)", "Preclinical", "-", "Large full-thickness wounds in mice regenerate de novo follicles via epidermal Wnt and related programs.", "Proof the embryonic placode program can rerun after birth. Human WIHN is unreliable.", "Existence proof for Invent. Not a clinic you book.", '<p class="faint">Reviewed on 2026-09-28 · Source: Nature / Cell Stem Cell publications</p>'],
   ["iPSC follicle organoids", "Stemson-class", "Preclinical", "-", "Reprogram a patient's cells, differentiate lineages, assemble a follicle.", "Stemson wound down around 2024. The biology did not become false when the company did.", "The only path that is truly unlimited. Tumor risk and vascularization are why it is slow.", '<p class="faint">Reviewed on 2026-09-28 · Source: Koehler Lab Nature organoid protocols</p>']
@@ -205,7 +205,7 @@ const baldScope = [
       '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://jci.org/articles/view/44478">Garza 2011, J Clin Invest</a>, <a href="https://www.frontiersin.org/articles/10.3389/fmed.2021.790597/full">Khunkhet et al, Front Med 2021</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/8496421/">Whiting 1993, J Am Acad Dermatol</a></p>',
   },
   {
-    meta: "Surgical redistribution — donor-supply arithmetic",
+    meta: "Surgical redistribution — relocation is not restoration",
     title: "Transplant is supply-to-demand math, and supply is small",
     body: "A transplant never creates hair; it relocates follicles that resist pattern loss from the donor rim into bare zones. The average scalp holds about 50,000 follicular units but only about 12,500 of them sit in the safe permanent donor zone, and practice guidelines put lifetime safe harvest at 4,000-6,500 grafts. A completely bald scalp would need tens of thousands of grafts to approach natural density, so a worst-case Norwood VII rebuild lands around 18% of normal density in the covered area — a visible improvement, never a full head. Long-term take matters too: pooled case-series data put surviving grafts at 82.7% in the first year, decaying to 39.6% over years 4–6, which is why careful surgeons weight density expectations downward.",
     can: "rebuild a hairline and frontal framing with permanent hair — the only route with a decades-long track record on long-bald skin",
@@ -225,7 +225,7 @@ const baldScope = [
   {
     meta: "Neogenesis frontier — growing entirely new follicles",
     title: "Regeneration is in the lab and early trials, not the clinic",
-    body: "The route that would matter most on a completely bald scalp — growing entirely new follicles — is the least mature. Wound-induced hair neogenesis is real in mice (Ito 2007, Wnt-dependent de novo follicles forming in wounded adult skin) but has never been reproduced at scale in humans. iPSC-derived skin organoids grow hair-bearing human skin in a dish (Lee 2020) but are not a tissue-ready clinical product, and the best-funded iPSC hair company, Stemson Therapeutics, shut down in December 2024. HairClone began pilot clinical testing of autologous follicle-cell therapy in 2026, and Pelage's PP405 AWAKEN trial (NCT07819435, first patient dosed October 2026, phase 2/3, about 600 men) targets reactivating dormant follicle stem cells — but it enrolls Norwood IV–V, explicitly not fully-bald scalps. The Pipeline tab tracks these threads. As of this review no clinical-stage program has demonstrated regrowth on a follicle-absent pattern-bald scalp; a realistic window for neogenesis reaching long-bald human scalps is the 2030s.",
+    body: "The route that would matter most on a completely bald scalp — growing entirely new follicles — is the least mature. Wound-induced hair neogenesis is real in mice (Ito 2007, Wnt-dependent de novo follicles forming in wounded adult skin) but has never been reproduced at scale in humans. iPSC-derived skin organoids grow hair-bearing human skin in a dish (Lee 2020) but are not a tissue-ready clinical product, and the best-funded iPSC hair company, Stemson Therapeutics, shut down in December 2024. HairClone announced company-run autologous follicle-cell testing in March 2026 (volunteers selected, injections still forthcoming, no registered protocol or results posted), and Pelage's PP405 AWAKEN trial (NCT07819435, first patient dosed October 2026, phase 2/3, about 600 men) targets reactivating dormant follicle stem cells — but it enrolls Norwood IV–V, explicitly not fully-bald scalps. The Pipeline tab tracks these threads. As of this review no clinical-stage program has demonstrated regrowth on a follicle-absent pattern-bald scalp; a realistic window for neogenesis reaching long-bald human scalps is the 2030s.",
     can: "watch the real clinical threads — AWAKEN, HairClone's pilot, organoid research — and re-check this tab every season",
     cannot: "claim a working neogenesis option today; nothing in or near the clinic regrows hair where follicles are absent",
     review:
@@ -239,6 +239,99 @@ const baldScope = [
     cannot: "guarantee counts, survival rates or regrowth odds on the exact scalps the trials studied least",
     review:
       '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://doi.org/10.1093/bjd/ljae365">ALLEGRO-LT, Br J Dermatol</a>, <a href="https://doi.org/10.1097/dss.0000000000004707">Graft-survival systematic review, Dermatol Surg</a>, <a href="https://www.frontiersin.org/articles/10.3389/fmed.2021.790597/full">Khunkhet et al, Front Med 2021</a></p>',
+  },
+];
+
+const regenScope = [
+  {
+    meta: "The parity checklist — no open source passes it yet",
+    title: "Regeneration is five terms, not one breakthrough",
+    body: "Restoring the original endowment is not one discovery; it is five terms multiplied together — manufacturing throughput, engraftment take, spatial patterning, follicle maturation and repeated cycling. A method that scores on one term (say, thousands of germs per batch) still fails the product if take is low or follicles stall as pegs instead of cycling organs. Moving hair is not the same as regrowing it: relocation rearranges a finite donor supply, while regeneration must produce new, patterned, cycling organs — and no open source reviewed here shows all five passing together in a human scalp.",
+    can: "read every result below against all five terms, never against a single headline number",
+    cannot: "be collapsed into 'close' — one term passing is not parity",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://doi.org/10.1097/dss.0000000000004707">Graft-survival systematic review, Dermatol Surg</a>, <a href="https://jcasonline.com/hair-transplant-practice-guidelines/">JCASTF practice guidelines</a></p>',
+  },
+  {
+    meta: "Printed appendage-bearing skin — proof in mice",
+    title: "2025: printed skin made follicles and visible shafts",
+    body: "A 5% GelMA / 0.5% HAMA printed construct carrying murine epidermal stem cells and skin-derived precursors regenerated epidermis, dermis, vessels, sebaceous glands and hair follicles after grafting into nude-mouse wounds (Ma et al, Theranostics 2025). Figure 5 plots roughly 800, 800 and 250 hair shafts after 0, 6 and 12 hours of pre-graft culture — a sharp fall by 12 hours that flags manufacturing robustness as the immediate problem. Four-week mouse endpoint; no human construct, original-density comparison or repeated cycling.",
+    can: "treat printing as a real route to appendage-bearing skin, with the bioink and cell types now named",
+    cannot: "claim human follicle density, durability or cycling — the fall in shafts after 12 hours of pre-culture is the honest headline",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://www.thno.org/v15p2933.htm">Ma et al, Theranostics 2025</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/40083946/">PubMed 40083946</a></p>',
+  },
+  {
+    meta: "Microfluidic hair germs — clearest throughput numbers",
+    title: "1,450 spheres a batch gave 171 follicles",
+    body: "A core–shell microfluidic hair-germ system used roughly one-thirteenth the cells of a conventional chamber assay. Per assay, 1,450 spheres yielded 171.3±33.5 follicles in the best arm versus 1.7±0.7 and 2.2±0.8 for hanging-drop controls, at six weeks in nude-mouse chambers (Chen et al, Advanced Science 2025). Newborn-mouse cells and a six-week morphology endpoint — repeated cycling and human cells remain unstudied.",
+    can: "expose the variables an endowment calculation actually needs — spheres per batch, cells per sphere, follicles recovered",
+    cannot: "be read as scalp-scale manufacturing or a validated human engraftment percentage",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12021125/">PMC12021125</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/40042061/">PubMed 40042061</a></p>',
+  },
+  {
+    meta: "OrganTech — a third cell type, and a status correction",
+    title: "A third mesenchymal cell enables full-size cycling follicles — in mice",
+    body: "Germ reconstitution added a PDGFRα+/Sca1+/CD34-high accessory mesenchymal population to epithelial stem cells and dermal papillae, reporting full-size, cycling follicles in preclinical models (Toyoshima et al, BBRC 2026). The official pipeline page still describes humanization and preparation for clinical research and names no confirmed first-in-human date. 'First-in-human late 2026' should not be read as a milestone.",
+    can: "count a defined third cell type as progress on biological completeness and cycling",
+    cannot: "cite a confirmed first-in-human date — the page reviewed says preparing for clinical research",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/41762869/">Toyoshima et al, BBRC 2026</a>, <a href="https://www.organ-tech.jp/en/business/hair_regeneration.html">OrganTech pipeline page</a></p>',
+  },
+  {
+    meta: "Human-cell engineering — patterning before maturation",
+    title: "Human cells form pegs and spheroids, not mature follicles",
+    body: "The 2026 human-cell results stay one step short of a follicle. Sourcing: human iPSC-derived ectodermal precursors sprouted only with mouse mesenchyme in chimeric organoids (Kageyama et al). Patterning: human keratinocyte–DP spheroids formed peg-like structures in micropatterned collagen, where the authors write that 'maturation into fully developed hair follicles remains to be achieved' (Siegfried et al). Delivery: 50–70 µm human DP spheroids held 92.95% viability at day 3 and made shafts in mice at 100–150 spheroids per site (Kang et al).",
+    can: "build the spatial-patterning and cell-sourcing blocks the five-term checklist needs",
+    cannot: "claim a mature, pigmented, innervated, repeatedly cycling human follicle from any of these",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/41664452/">Kageyama et al, ACS Biomater Sci Eng</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/42501773/">Siegfried et al, Acta Biomater</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11725629/">Kang et al, Biomater Res</a></p>',
+  },
+  {
+    meta: "Cell-therapy scorecard — announced, not dosed",
+    title: "HairClone, RepliCel, dNovo: programs, not results",
+    body: "HairClone's March 2026 announcement selects volunteers for autologous follicle-cell injections and says injections were still forthcoming — no registered protocol, dosing count or efficacy result. RepliCel's RCH-01 reached a completed 19-person phase I/IIa study (NCT01286649) with no posted results; its 2021 Shiseido licence termination and 2025 asset transaction are corporate milestones, not hair data. dNovo's site rests on company-reported 2020 mouse work with no peer-reviewed validation.",
+    can: "track the manufacturing and company milestones that precede any clinical claim",
+    cannot: "treat a company announcement, an asset sale or mouse milestones as human follicle regeneration",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://hairclone.me/newlook/hairclone-begins-clinical-testing/">HairClone announcement, Mar 2026</a>, <a href="https://clinicaltrials.gov/study/NCT01286649">NCT01286649</a>, <a href="https://www.accessnewswire.com/newsroom/en/biotechnology/replicel-terminates-license-agreement-with-shiseido-678894">RepliCel / Shiseido, 2021</a>, <a href="https://www.stockwatch.com/News/Item/Z-C!RP-3652041/C/RP">Stockwatch, Feb 2025</a>, <a href="https://www.dnovobio.com/">dNovo site</a></p>',
+  },
+  {
+    meta: "Wound neogenesis — the human reality check",
+    title: "Mouse WIHN does not yet cross to humans",
+    body: "Wound-induced neogenesis is the strongest existence proof that adult skin can rerun the placode program — verteporfin produced regenerative, scar-reduced healing in pigs (Mascharak et al, Sci Transl Med 2025). The human evidence stays tiny: one 2025 single-patient report, and a completed 24-person gentle-wounding pilot (NCT03491267) posting a mean change of 2.6±5.89 hairs among 13 evaluated participants — with no histological proof of new follicles.",
+    can: "hold the gap between mouse neogenesis and human outcome honestly, including the n=1 verteporfin case",
+    cannot: "claim reliable donor regeneration or unlimited supply from 2.6 hairs and one case report",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://clinicaltrials.gov/study/NCT03491267">NCT03491267</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/39970235/">Mascharak et al, Sci Transl Med 2025</a>, <a href="https://clinmedjournals.org/articles/ijdrt/journal-of-dermatology-research-and-therapy-ijdrt-11-131.php">Toyos et al, J Dermatol Res Ther 2025</a></p>',
+  },
+  {
+    meta: "Senescence — a tractable quality-control axis",
+    title: "Aging cells can be cleared, but the human leap is unmade",
+    body: "Senescence ties androgen drive to dermal-papilla decline: SFRP2 stabilizes FSTL1 and drives DHT-associated DP senescence (Huang et al, Aging Cell 2026); senolytic D+Q cleared senescent human DP cells and restored inductive function in a mouse reconstitution assay (Pappalardo et al, Aging Cell 2025); and an IGF-1–p53 axis links cycling and pigment decline in mice (Wang et al, Aging Cell 2025). These support senescence as a cell-product release attribute — not yet scalp-directed senolytic therapy.",
+    can: "position senescence as a disease-modifying readout alongside androgen-pathway activity",
+    cannot: "cite a human senolytic trial restoring scalp density — none was opened this session",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/42698274/">Huang et al, Aging Cell 2026</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11709086/">Pappalardo et al, Aging Cell 2025</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12266755/">Wang et al, Aging Cell 2025</a></p>',
+  },
+  {
+    meta: "Rejuvenation levers — hypothesis tier",
+    title: "Reprogramming, NAD+ and mTOR: mouse and cell evidence",
+    body: "Partial OSKM reprogramming improved skin repair and shifted aging markers in mice but measured no hair endpoint (Kwak et al; Browder et al). NMN altered DHT-stressed DP readouts — 41.78% inhibition of AR and 75.16% of DKK-1 at 0.316 mg/mL — in cells, not humans (Xu et al). Rapamycin rescued UVA-exacerbated DHT loss in mice; the lone human rapamycin skin study is a 2019 exploratory trial with no hair measure (Wei et al; Chung et al).",
+    can: "keep these levers in a hypothesis tier with the mouse caveats attached",
+    cannot: "present any as a validated human follicle-rejuvenation result",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12960685/">Kwak et al, Nat Commun 2026</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/37118377/">Browder et al, Nat Aging 2022</a>, <a href="https://www.mdpi.com/1420-3049/29/4/798">Xu et al, Molecules 2024</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/40570815/">Wei et al, J Photochem Photobiol B 2025</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6925069/">Chung et al, GeroScience 2019</a></p>',
+  },
+  {
+    meta: "Genetics, lifestyle, benchmarks — not lifetime levers yet",
+    title: "Forever hair has no human proof of concept",
+    body: "AR silencing is transient RNA interference, not permanent editing — AR-27 siRNA grew hair in DHT mice (Feng et al, 2025); in vitro SFRP2 CRISPR reached 67.0% editing in DP cells with no human path (Cai et al, 2026). Lifestyle evidence for preserving density is, in the review's own words, 'limited and fragmented' (Huang et al, 2026). The best cell-resolved human scalp atlas profiled 57,181 cells but only one elderly donor (Zhao et al, 2025) — a benchmark, not yet a rejuvenation target.",
+    can: "define cell-type benchmarks and honest editing and hypothesis tiers",
+    cannot: "claim permanent gene editing, a validated lifestyle lever or a general aging signature from one elderly donor",
+    review:
+      '<p class="faint">Reviewed on 2026-11-12 · Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/41001936/">Feng et al, J Med Chem 2025</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/42969371/">Cai et al, J Cell Physiol 2026</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12913381/">Huang et al, Front Public Health 2026</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/42903992/">Zhao et al, hLife 2025</a></p>',
   },
 ];
 
@@ -389,6 +482,8 @@ panels(document.getElementById('hair-myths'), myths.map(([q, a]) =>
 panels(document.getElementById('hair-bald'), baldScope.map((item) =>
   '<article class="panel"><p class="meta">' + item.meta + '</p><h3>' + item.title + '</h3><p class="muted">' + item.body + '</p><p class="can">Can: ' + item.can + '</p><p class="cannot">Cannot: ' + item.cannot + '</p>' + reviewStatus(item.review) + '</article>'));
 
+panels(document.getElementById('hair-regen'), regenScope.map((item) =>
+  '<article class="panel"><p class="meta">' + item.meta + '</p><h3>' + item.title + '</h3><p class="muted">' + item.body + '</p><p class="can">Can: ' + item.can + '</p><p class="cannot">Cannot: ' + item.cannot + '</p>' + reviewStatus(item.review) + '</article>'));
 cards(document.getElementById('tooth-horizons'), toothHorizons);
 panels(document.getElementById('tooth-methods'), methods.map(([rank, title, body]) =>
   '<article class="panel"><p class="meta">' + rank + '</p><h3>' + title + '</h3><p class="muted">' + body + '</p></article>'));
@@ -528,7 +623,7 @@ function makeTabs(id, items) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths'], ['bald', 'Bald scalps']]);
+makeTabs('hair-tabs', [['home', 'Atlas'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['biology', 'Biology'], ['lab', 'Lab'], ['myths', 'Myths'], ['bald', 'Bald scalps'], ['regen', 'Regenerate']]);
 makeTabs('tooth-tabs', [['home', 'Atlas'], ['methods', 'Methods'], ['stack', 'Stack'], ['pipeline', 'Pipeline'], ['compare', 'Compare'], ['organ', 'Organ'], ['trauma', 'Trauma']]);
 
 const hair = document.getElementById('hair');
